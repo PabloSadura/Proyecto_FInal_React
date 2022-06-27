@@ -111,6 +111,20 @@ const productos = [
     cantidad: 1,
     precio: 2500,
   },
+  {
+    id: 17,
+    tipo: "Sesiones",
+    nombre: "Fisiokinesioterapia",
+    cantidad: 1,
+    precio: 700,
+  },
+  {
+    id: 18,
+    tipo: "Sesiones",
+    nombre: "Psicología",
+    cantidad: 1,
+    precio: 700,
+  },
 ];
 
 export const gFetch = new Promise((res, rej) => {
