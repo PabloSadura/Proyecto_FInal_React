@@ -6,7 +6,7 @@ function Items({ producto }) {
   const { id, tipo, nombre, precio } = producto;
 
   return (
-    <Card className="text-center mt-3 w-25 mx-1">
+    <Card className="text-center mt-3 w-25 mx-1 shadow">
       <Card.Header as="h5">{tipo}</Card.Header>
       <Card.Body>
         <Card.Title>{nombre}</Card.Title>
