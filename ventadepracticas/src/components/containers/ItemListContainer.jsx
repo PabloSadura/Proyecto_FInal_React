@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { gFetch } from "../../helpers/BDatos";
 import Items from "../Items/Items";
 import { Container, Spinner } from "react-bootstrap";
+import ItemsList from "../ItemsList/ItemsList";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -27,11 +28,7 @@ const ItemListContainer = () => {
       <Spinner animation="border" role="status" variant="info" />
     </div>
   ) : (
-    <Container className="d-flex justify-content-evenly mt-4 flex-wrap w-100">
-      {products.map((product) => (
-        <Items producto={product} key={product.id} />
-      ))}
-    </Container>
+    <ItemsList producto={products} />
   );
 };
 

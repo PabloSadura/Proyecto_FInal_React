@@ -2,8 +2,8 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 
-function Items({ producto }) {
-  const { id, tipo, nombre, precio } = producto;
+function Items({ products }) {
+  const { id, tipo, nombre, precio } = products;
 
   return (
     <Card className="text-center mt-3 w-25 mx-1 shadow">
