@@ -5,7 +5,7 @@ const productos = [
     img: "./src/img/consultaMedica.jpg",
     nombre: "Consulta Clinica",
     cantidad: 1,
-    precio: 1000,
+    precio: "$1000 - $1500",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const productos = [
     img: "./src/img/consultaMedica.jpg",
     nombre: "Consulta Cardiologia",
     cantidad: 1,
-    precio: 2000,
+    precio: "$1000 - $1500",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const productos = [
     img: "./src/img/consultaMedica.jpg",
     nombre: "Consulta Gastroenterologia",
     cantidad: 1,
-    precio: 2000,
+    precio: "$1000 - $1500",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const productos = [
     img: "./src/img/consultaMedica.jpg",
     nombre: "Consulta Neurologia",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const productos = [
     img: "./src/img/consultaMedica.jpg",
     nombre: "Consulta Oftalmologia",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const productos = [
     img: "./src/img/resonancia.jpg",
     nombre: "Resonancia de Hombros",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const productos = [
     img: "./src/img/resonancia.jpg",
     nombre: "Resonancia de Cadera",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const productos = [
     img: "./src/img/resonancia.jpg",
     nombre: "Resonancia de Manos",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ const productos = [
     img: "./src/img/resonancia.jpg",
     nombre: "Resonancia de Rodilla",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ const productos = [
     img: "./src/img/resonancia.jpg",
     nombre: "Resonancia de Pie",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ const productos = [
     img: "./src/img/doppler.jpg",
     nombre: "Ecografia de Partes Blandas",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ const productos = [
     img: "./src/img/doppler.jpg",
     nombre: "Ecografia de Abdomen",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 13,
@@ -101,7 +101,7 @@ const productos = [
     img: "./src/img/radiografias.jpg",
     nombre: "Radiografias",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 14,
@@ -109,7 +109,7 @@ const productos = [
     img: "./src/img/doppler.jpg",
     nombre: "Ecodopler Color",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 15,
@@ -117,7 +117,7 @@ const productos = [
     img: "./src/img/laboratorio.jpg",
     nombre: "Estudios de Rutina (hasta 10)",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 16,
@@ -125,7 +125,7 @@ const productos = [
     img: "./src/img/laboratorio.jpg",
     nombre: "Vitamina D",
     cantidad: 1,
-    precio: 2500,
+    precio: "$1000 - $1500",
   },
   {
     id: 17,
@@ -133,7 +133,7 @@ const productos = [
     img: "./src/img/fkt.jpg",
     nombre: "Fisiokinesioterapia",
     cantidad: 1,
-    precio: 700,
+    precio: "$1000 - $1500",
   },
   {
     id: 18,
@@ -141,7 +141,7 @@ const productos = [
     img: "./src/img/sesionPsico.jpg",
     nombre: "Psicología",
     cantidad: 1,
-    precio: 700,
+    precio: "$1000 - $1500",
   },
 ];
 
