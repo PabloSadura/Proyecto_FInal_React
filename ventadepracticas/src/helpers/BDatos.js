@@ -2,6 +2,7 @@ const productos = [
   {
     id: 1,
     tipo: "Consulta",
+    categoria: "clinica",
     img: "./src/img/consultaMedica.jpg",
     nombre: "Consulta Clinica",
     cantidad: 1,
@@ -10,6 +11,7 @@ const productos = [
   {
     id: 2,
     tipo: "Consulta",
+    categoria: "cardiologia",
     img: "./src/img/consultaMedica.jpg",
     nombre: "Consulta Cardiologia",
     cantidad: 1,
@@ -18,14 +20,16 @@ const productos = [
   {
     id: 3,
     tipo: "Consulta",
+    categoria: "otorrino",
     img: "./src/img/consultaMedica.jpg",
-    nombre: "Consulta Gastroenterologia",
+    nombre: "Consulta Otorrino",
     cantidad: 1,
     precio: "$1000 - $1500",
   },
   {
     id: 4,
     tipo: "Consulta",
+    categoria: "neurologia",
     img: "./src/img/consultaMedica.jpg",
     nombre: "Consulta Neurologia",
     cantidad: 1,
@@ -34,6 +38,7 @@ const productos = [
   {
     id: 5,
     tipo: "Consulta",
+    categoria: "oftalmologia",
     img: "./src/img/consultaMedica.jpg",
     nombre: "Consulta Oftalmologia",
     cantidad: 1,
@@ -42,6 +47,7 @@ const productos = [
   {
     id: 6,
     tipo: "Imagenes",
+    categoria: "resonancia",
     img: "./src/img/resonancia.jpg",
     nombre: "Resonancia de Hombros",
     cantidad: 1,
@@ -50,6 +56,7 @@ const productos = [
   {
     id: 7,
     tipo: "Imagenes",
+    categoria: "resonancia",
     img: "./src/img/resonancia.jpg",
     nombre: "Resonancia de Cadera",
     cantidad: 1,
@@ -58,6 +65,7 @@ const productos = [
   {
     id: 8,
     tipo: "Imagenes",
+    categoria: "resonancia",
     img: "./src/img/resonancia.jpg",
     nombre: "Resonancia de Manos",
     cantidad: 1,
@@ -66,6 +74,7 @@ const productos = [
   {
     id: 9,
     tipo: "Imagenes",
+    categoria: "resonancia",
     img: "./src/img/resonancia.jpg",
     nombre: "Resonancia de Rodilla",
     cantidad: 1,
@@ -74,6 +83,7 @@ const productos = [
   {
     id: 10,
     tipo: "Imagenes",
+    categoria: "resonancia",
     img: "./src/img/resonancia.jpg",
     nombre: "Resonancia de Pie",
     cantidad: 1,
@@ -82,6 +92,7 @@ const productos = [
   {
     id: 11,
     tipo: "Imagenes",
+    categoria: "ecografia",
     img: "./src/img/doppler.jpg",
     nombre: "Ecografia de Partes Blandas",
     cantidad: 1,
@@ -90,6 +101,7 @@ const productos = [
   {
     id: 12,
     tipo: "Imagenes",
+    categoria: "doppler",
     img: "./src/img/doppler.jpg",
     nombre: "Ecografia de Abdomen",
     cantidad: 1,
@@ -98,6 +110,7 @@ const productos = [
   {
     id: 13,
     tipo: "Imagenes",
+    categoria: "radiografia",
     img: "./src/img/radiografias.jpg",
     nombre: "Radiografias",
     cantidad: 1,
@@ -106,6 +119,7 @@ const productos = [
   {
     id: 14,
     tipo: "Imagenes",
+    categoria: "doppler",
     img: "./src/img/doppler.jpg",
     nombre: "Ecodopler Color",
     cantidad: 1,
@@ -114,6 +128,7 @@ const productos = [
   {
     id: 15,
     tipo: "Laboratorio",
+    categoria: "laboratorio",
     img: "./src/img/laboratorio.jpg",
     nombre: "Estudios de Rutina (hasta 10)",
     cantidad: 1,
@@ -122,6 +137,7 @@ const productos = [
   {
     id: 16,
     tipo: "Laboratorio",
+    categoria: "laboratorio",
     img: "./src/img/laboratorio.jpg",
     nombre: "Vitamina D",
     cantidad: 1,
@@ -130,6 +146,7 @@ const productos = [
   {
     id: 17,
     tipo: "Sesiones",
+    categoria: "sesionesFkt",
     img: "./src/img/fkt.jpg",
     nombre: "Fisiokinesioterapia",
     cantidad: 1,
@@ -138,6 +155,7 @@ const productos = [
   {
     id: 18,
     tipo: "Sesiones",
+    categoria: "sesionesPsico",
     img: "./src/img/sesionPsico.jpg",
     nombre: "Psicología",
     cantidad: 1,

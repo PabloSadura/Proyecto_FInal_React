@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { gFetch } from "../../helpers/BDatos";
 import Items from "../Items/Items";
-import { Container, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import ItemsList from "../ItemsList/ItemsList";
 
 const ItemListContainer = () => {

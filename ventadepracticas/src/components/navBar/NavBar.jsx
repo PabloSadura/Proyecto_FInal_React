@@ -1,25 +1,35 @@
 import React from "react";
 import CartWidget from "../cartWidget/CartWidget";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">VPM</Navbar.Brand>
+        <NavLink to={"/"} className="navbar-brand">
+          VPM
+        </NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#consultas">Consultas</Nav.Link>
-            <Nav.Link href="#sesiones">Sesiones</Nav.Link>
-            <Nav.Link href="#Imagenes">Imagenes</Nav.Link>
-            <Nav.Link href="#Laboratorio">Laboratorios</Nav.Link>
+            <NavLink to="/categoria/consultas" className="nav-link">
+              Consultas
+            </NavLink>
+            <NavLink to="/categoria/sesiones" className="nav-link">
+              Sesiones
+            </NavLink>
+            <NavLink to="/categoria/imagenes" className="nav-link">
+              Imagenes
+            </NavLink>
+            <NavLink to="/categoria/laboratorio" className="nav-link">
+              Laboratorios
+            </NavLink>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">Sobre Nosotros</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
+            <Link to={"/cart"} className="nav-link">
               <CartWidget />
-            </Nav.Link>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

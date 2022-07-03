@@ -1,9 +1,10 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Items({ products }) {
-  const { id, tipo, img, nombre, precio } = products;
+  const { id, tipo, img, nombre, precio, categoria } = products;
 
   return (
     <Card className="text-center mt-3 w-25 mx-1 shadow">
@@ -12,7 +13,9 @@ function Items({ products }) {
       <Card.Body>
         {/* <Card.Title>{nombre}</Card.Title> */}
         <Card.Text>{precio}</Card.Text>
-        <Button variant="primary">Ver más</Button>
+        <Link to={`/profesionales/${categoria}`}>
+          <Button variant="primary">Ver más</Button>
+        </Link>
       </Card.Body>
     </Card>
   );
