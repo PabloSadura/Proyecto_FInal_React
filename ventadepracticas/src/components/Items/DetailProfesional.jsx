@@ -49,21 +49,16 @@ function DetailProfesional() {
         <div className="col-md-6 p-4">
           <div className="d-flex justify-content-between">
             <h3>{nombre}</h3>
-            <h3>{stars}</h3>
+            <h4 className="text-muted">{stars}</h4>
           </div>
-          <div>
-            <p className="">{especialidad}</p>
-          </div>
-          <div>
-            <p>
-              {" "}
-              <FontAwesomeIcon icon={faLocationDot} />
-              <span> {localidad}</span>
-            </p>
-          </div>
-          <div>
-            <p>{descripcion}</p>
-          </div>
+          <p className="">{especialidad}</p>
+          <p>
+            {" "}
+            <FontAwesomeIcon icon={faLocationDot} />
+            <span> {localidad}</span>
+          </p>
+          <p>{descripcion}</p>
+          <p>{}</p>
           <div className="text-end">
             <h3>$ {precio}</h3>
           </div>
