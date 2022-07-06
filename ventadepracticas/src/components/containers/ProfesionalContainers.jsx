@@ -15,8 +15,7 @@ function ProfesionalContainers() {
   useEffect(() => {
     gFetchProfesional
       .then((resp) => {
-        let respuesta = resp.filter((item) => item.categoria === categoria);
-        setProfesional(respuesta);
+        setProfesional(resp.filter((item) => item.categoria === categoria));
       })
       .catch((rej) => console.log(rej))
       .finally(() => setLoading(false));

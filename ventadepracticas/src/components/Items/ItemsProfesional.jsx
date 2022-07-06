@@ -16,10 +16,10 @@ function ItemsProfesional({ profesional }) {
         <FontAwesomeIcon icon={faStar} />
         <Card.Text>Puntuación: {rate} </Card.Text>
         <Link
-          to={`/cart/${id}`}
+          to={`/details/${id}`}
           className="css-button-sliding-to-left--sky text-decoration-none"
         >
-          Agregar
+          Detalles
         </Link>
       </Card.Body>
     </Card>

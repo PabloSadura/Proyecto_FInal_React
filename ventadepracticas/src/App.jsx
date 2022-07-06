@@ -5,6 +5,7 @@ import Cart from "./components/containers/Cart/Cart";
 import ProfesionalContainers from "./components/containers/ProfesionalContainers";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import DetailProfesional from "./components/Items/DetailProfesional";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             path="/profesionales/:categoria"
             element={<ProfesionalContainers />}
           />
+          <Route path="/details/:id" element={<DetailProfesional />} />
           <Route path="/cart" element={<Cart />} />
           {/* <Route path="*" element={<Navigate to={"/"} />} /> */}
         </Routes>
