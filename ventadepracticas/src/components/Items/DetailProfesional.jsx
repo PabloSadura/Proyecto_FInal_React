@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { Card, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import { gFetchProfesional } from "../../helpers/Profesionales";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext";
 
 function DetailProfesional() {
+  const [cart, setCart, addItems] = useContext(CartContext);
+
   const [profesional, setProfesional] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+
   useEffect(() => {
     gFetchProfesional
       .then((resp) =>
@@ -22,7 +28,6 @@ function DetailProfesional() {
   let stars = [];
   for (let i = 0; i < profesional.rate; i++) {
     stars[i] = <FontAwesomeIcon icon={faStar} />;
-    console.log(stars);
   }
 
   const {
@@ -44,7 +49,7 @@ function DetailProfesional() {
     <div className="container">
       <div className="row mt-4 border rounded-1 shadow w-100">
         <div className="col-md-6 text-center">
-          <img src={img} alt="" className="w-100 p-4 rounded-5" />
+          <img src={img} alt="" className="w-75 p-4 rounded-5" />
         </div>
         <div className="col-md-6 p-4">
           <div className="d-flex justify-content-between">
@@ -63,12 +68,14 @@ function DetailProfesional() {
             <h3>$ {precio}</h3>
           </div>
           <div className="text-end">
-            <Link
-              to="/cart"
+            <button
               className="css-button-sliding-to-left--sky text-decoration-none text-center"
+              onClick={() => {
+                addItems(profesional);
+              }}
             >
               Contratar
-            </Link>
+            </button>
           </div>
         </div>
       </div>
