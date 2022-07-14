@@ -7,7 +7,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addItems = (items) => {
-    setCart([...cart, items]);
+    isInCart(items.id) ? null : setCart([...cart, items]);
   };
 
   const clear = () => {
@@ -15,7 +15,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const isInCart = (id) => {
-    cart.find((item) => item.id === id) ? true : false;
+    return cart.find((item) => item.id === id) ? true : false;
   };
 
   const removeItem = (id) => {
