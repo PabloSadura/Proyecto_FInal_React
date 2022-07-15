@@ -145,6 +145,8 @@ const profesionales = [
     categoria: "oftalmologia",
     cantidad: 1,
     precio: 1200,
+    practica1: { practica: "Consultas en Consultorio", precio: 1200 },
+    practica2: { practica: "Fondo de Ojo", precio: 3500 },
   },
 
   {
@@ -159,6 +161,8 @@ const profesionales = [
     categoria: "laboratorio",
     cantidad: 1,
     precio: 1200,
+    practica1: { practica: "Hasta 10 analisis", precio: 1000 },
+    practica2: { practica: "Hasta 30 analisis", precio: 3500 },
   },
   {
     id: 12,
@@ -172,6 +176,7 @@ const profesionales = [
     categoria: "clinica",
     cantidad: 1,
     precio: 1200,
+    practica1: { practica: "Consultas en Consultorio", precio: 1000 },
   },
   {
     id: 13,
@@ -185,6 +190,8 @@ const profesionales = [
     categoria: "sesionesFkt",
     cantidad: 1,
     precio: 1200,
+    practica1: { practica: "Sesion de FKT", precio: 1000 },
+    practica2: { practica: "Masajes Descontracturantes", precio: 1500 },
   },
 ];
 export const gFetchProfesional = new Promise((res, rej) => {
