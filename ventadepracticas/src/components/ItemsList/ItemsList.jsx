@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Items from "../Items/Items";
 

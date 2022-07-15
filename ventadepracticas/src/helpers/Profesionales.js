@@ -11,6 +11,8 @@ const profesionales = [
     categoria: "clinica",
     cantidad: 1,
     precio: 1000,
+    practica1: { practica: "Consultas en Consultorio", precio: 1000 },
+    practica2: { practica: "Consultas en Pediatrica", precio: 1500 },
   },
   {
     id: 2,
@@ -24,6 +26,7 @@ const profesionales = [
     categoria: "clinica",
     cantidad: 1,
     precio: 1200,
+    practica1: { practica: "Consultas en Consultorio", precio: 1200 },
   },
   {
     id: 3,
@@ -37,6 +40,8 @@ const profesionales = [
     categoria: "clinica",
     cantidad: 1,
     precio: 1000,
+    practica1: { practica: "Consultas en Consultorio", precio: 1000 },
+    practica2: { practica: "Consultas en General", precio: 1500 },
   },
   {
     id: 4,
@@ -50,6 +55,8 @@ const profesionales = [
     categoria: "clinica",
     cantidad: 1,
     precio: 1200,
+    practica1: { practica: "Consultas en Consultorio", precio: 1200 },
+    practica2: { practica: "Consultas en Pediatrica", precio: 1500 },
   },
   {
     id: 5,
@@ -57,12 +64,14 @@ const profesionales = [
     localidad: "Mendoza, Argentina",
     img: "../../src/img/men1.jpg",
     rate: 4,
-    especialidad: "Médico Clinico",
+    especialidad: "Médico Oftalmologo",
     descripcion:
       "El médico clínico suele conocerse como el médico de cabecera de una persona adulta.Se caracteriza por atender personas de más de 15 años y por no realizar tratamientos quirúrgicos. Además puede desarrollar sus actividades asistenciales en un hospital, en un consultorio o en ambos, abarcando distintos niveles de complejidad, algunos llaman internista al clínico que se dedica exclusivamente a la atención hospitalaria. Esta atención es integral y esto nos diferencia de quienes ejercen subespecialidades ya que no nos dedicamos a una sola área de la medicina. Sabemos bastante de cada área a diferencia del subespecialista que sabe mucho de una solo tema.",
-    categoria: "clinica",
+    categoria: "oftalmologia",
     cantidad: 1,
     precio: 1200,
+    practica1: { practica: "Consultas en Consultorio", precio: 1200 },
+    practica2: { practica: "Fondo de Ojo", precio: 2500 },
   },
   {
     id: 6,
@@ -76,6 +85,8 @@ const profesionales = [
     categoria: "clinica",
     cantidad: 1,
     precio: 1200,
+    practica1: { practica: "Consultas en Consultorio", precio: 1200 },
+    practica2: { practica: "Consultas en Pediatrica", precio: 1500 },
   },
   {
     id: 7,
@@ -89,6 +100,8 @@ const profesionales = [
     categoria: "otorrino",
     cantidad: 1,
     precio: 1000,
+    practica1: { practica: "Consultas en Consultorio", precio: 1000 },
+    practica2: { practica: "Otoscopia", precio: 3500 },
   },
   {
     id: 8,
@@ -102,6 +115,8 @@ const profesionales = [
     categoria: "otorrino",
     cantidad: 1,
     precio: 1200,
+    practica1: { practica: "Consultas en Consultorio", precio: 1000 },
+    practica2: { practica: "Otoscopia", precio: 3500 },
   },
   {
     id: 9,
@@ -115,6 +130,8 @@ const profesionales = [
     categoria: "cardiologia",
     cantidad: 1,
     precio: 1000,
+    practica1: { practica: "Consultas en Consultorio", precio: 1000 },
+    practica2: { practica: "Electrocardiograma", precio: 3500 },
   },
   {
     id: 10,

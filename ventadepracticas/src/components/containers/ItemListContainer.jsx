@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { gFetch } from "../../helpers/BDatos";
-import Items from "../Items/Items";
 import { Spinner } from "react-bootstrap";
 import ItemsList from "../ItemsList/ItemsList";
 import { useParams } from "react-router-dom";
