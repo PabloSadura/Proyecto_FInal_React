@@ -28,6 +28,7 @@ function CartItems({ cart }) {
         </div>
       </div>
       <div>
+        <label htmlFor="selectToastPlacement">Elegir Práctica</label>
         <Form.Select
           id="selectToastPlacement"
           className="mt-2"
@@ -35,7 +36,6 @@ function CartItems({ cart }) {
         >
           {[practica1, practica2].map((p) => (
             <>
-              console.log(p);
               <option key={p} value={p.precio}>
                 {p.practica}
               </option>
