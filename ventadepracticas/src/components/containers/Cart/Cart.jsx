@@ -5,11 +5,11 @@ import { CartContext } from "../../../Context/CartContext";
 import CartItems from "./CartItems";
 function Cart() {
   const [cart, clear] = useContext(CartContext);
-
+  console.log(cart);
   return (
     <Container>
       {cart.map((el) => (
-        <CartItems />
+        <CartItems cart={el} />
       ))}
     </Container>
   );
