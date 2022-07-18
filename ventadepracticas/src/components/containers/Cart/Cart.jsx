@@ -1,11 +1,19 @@
 import React from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import { CartContext } from "../../../Context/CartContext";
 import CartItems from "./CartItems";
 function Cart() {
   const [cart, clear] = useContext(CartContext);
-  console.log(cart);
+
+  if (!cart.length) {
+    return (
+      <>
+        <h3 className="text-center mt-4">No hay productos en el carrito</h3>
+      </>
+    );
+  }
   return (
     <Container>
       {cart.map((el) => (

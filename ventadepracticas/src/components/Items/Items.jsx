@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./items.css";
 
 function Items({ products }) {
-  const { id, tipo, img, nombre, precio, categoria } = products;
+  const { img, nombre, precio, categoria } = products;
 
   return (
     <Card className="text-center mt-3 w-25 mx-1 shadow">

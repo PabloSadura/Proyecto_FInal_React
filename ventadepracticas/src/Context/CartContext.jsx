@@ -11,7 +11,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const clear = () => {
-    setCart([]);
+    setCart();
   };
 
   const isInCart = (id) => {
