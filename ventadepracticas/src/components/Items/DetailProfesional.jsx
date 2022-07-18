@@ -67,11 +67,22 @@ function DetailProfesional() {
           <div className="text-end">
             <h3>$ {precio}</h3>
           </div>
+          <div className="text-end d-flex justify-content-end my-2">
+            <div className="d-flex justify-content-between px-4 border align-items-center">
+              <button className="rounded mx-3 border-0" onClick={() => {}}>
+                -
+              </button>
+              <p className="align-self-center pt-2">{cantidad}</p>
+              <button className="rounded mx-3 border-0" onClick={() => {}}>
+                +
+              </button>
+            </div>
+          </div>
           <div className="text-end">
             <button
               className="css-button-sliding-to-left--sky text-decoration-none text-center"
               onClick={() => {
-                addItems(profesional);
+                addItems({ profesional, quantity: 1 });
               }}
             >
               Contratar

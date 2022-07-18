@@ -9,7 +9,7 @@ function Cart() {
   return (
     <Container>
       {cart.map((el) => (
-        <CartItems cart={el} />
+        <CartItems />
       ))}
     </Container>
   );
