@@ -19,6 +19,9 @@ function Cart() {
       {cart.map((el) => (
         <CartItems cart={el} />
       ))}
+      <Button onClick={clear} className="mt-4">
+        Vaciar Carrito
+      </Button>
     </Container>
   );
 }

@@ -82,7 +82,7 @@ function DetailProfesional() {
             <button
               className="css-button-sliding-to-left--sky text-decoration-none text-center"
               onClick={() => {
-                addItems({ profesional, quantity: 1 });
+                addItems(profesional);
               }}
             >
               Contratar

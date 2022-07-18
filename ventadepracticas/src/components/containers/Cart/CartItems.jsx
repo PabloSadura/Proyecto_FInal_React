@@ -9,6 +9,7 @@ function CartItems({ cart }) {
   const [valor, setValor] = useState([]);
   const {
     nombre,
+    cantidad,
     especialidad,
     categoria,
     precio,
@@ -16,7 +17,7 @@ function CartItems({ cart }) {
     img,
     practica1,
     practica2,
-  } = cart.profesional;
+  } = cart;
   const [removeItem] = useContext(CartContext);
   return (
     <div className="border mt-3 p-3 rounded shadow d-flex justify-content-evenly">
@@ -44,7 +45,7 @@ function CartItems({ cart }) {
         </Form.Select>
       </div>
       <div>
-        <h5>Cantidad: {cart.quantity}</h5>
+        <h5>Cantidad: {cantidad}</h5>
         <h2>${valor}</h2>
       </div>
     </div>
