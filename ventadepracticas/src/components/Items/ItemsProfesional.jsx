@@ -12,7 +12,6 @@ function ItemsProfesional({ profesional }) {
       <Card.Body>
         <Card.Text>{localidad}</Card.Text>
         <Card.Text>{especialidad}</Card.Text>
-        <Card.Text>$ {precio}</Card.Text>
         <FontAwesomeIcon icon={faStar} />
         <Card.Text>Puntuación: {rate} </Card.Text>
         <Link

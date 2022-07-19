@@ -12,13 +12,13 @@ function CartItems({ cart }) {
     cantidad,
     especialidad,
     categoria,
-    precio,
     id,
     img,
     practica1,
     practica2,
   } = cart;
   const [removeItem] = useContext(CartContext);
+
   return (
     <div className="border mt-3 p-3 rounded shadow d-flex justify-content-evenly">
       <div className="d-flex">

@@ -1,12 +1,10 @@
 import React from "react";
-import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
-import { gFetchProfesional } from "../../helpers/Profesionales";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 
 function DetailProfesional() {
@@ -17,30 +15,24 @@ function DetailProfesional() {
   const { id } = useParams();
 
   useEffect(() => {
-    gFetchProfesional
-      .then((resp) =>
-        setProfesional(resp.find((item) => item.id === Number(id)))
-      )
-      .catch((rej) => console.log(rej))
+    const db = getFirestore();
+    const queryProfesional = doc(db, "profesionales", id);
+    getDoc(queryProfesional)
+      .then((resp) => {
+        setProfesional({ id: resp.id, ...resp.data() });
+      })
+      .catch((err) => console.log(err))
       .finally(() => setLoading(false));
-  }, [id]);
+  }, []);
 
+  const { nombre, localidad, rate, img, especialidad, cantidad, descripcion } =
+    profesional;
+
+  console.log(profesional);
   let stars = [];
-  for (let i = 0; i < profesional.rate; i++) {
+  for (let i = 0; i < rate; i++) {
     stars[i] = <FontAwesomeIcon icon={faStar} />;
   }
-
-  const {
-    nombre,
-    localidad,
-    rate,
-    img,
-    especialidad,
-    precio,
-    cantidad,
-    descripcion,
-  } = profesional;
-
   return loading ? (
     <div className="text-center mt-4">
       <Spinner animation="border" role="status" variant="info" />
@@ -49,7 +41,7 @@ function DetailProfesional() {
     <div className="container">
       <div className="row mt-4 border rounded-1 shadow w-100">
         <div className="col-md-6 text-center">
-          <img src={img} alt="" className="w-75 p-4 rounded-5" />
+          <img src={img} alt="" className="w-50 p-4 rounded-5" />
         </div>
         <div className="col-md-6 p-4">
           <div className="d-flex justify-content-between">
@@ -64,20 +56,8 @@ function DetailProfesional() {
           </p>
           <p>{descripcion}</p>
           <p>{}</p>
-          <div className="text-end">
-            <h3>$ {precio}</h3>
-          </div>
-          <div className="text-end d-flex justify-content-end my-2">
-            <div className="d-flex justify-content-between px-4 border align-items-center">
-              <button className="rounded mx-3 border-0" onClick={() => {}}>
-                -
-              </button>
-              <p className="align-self-center pt-2">{cantidad}</p>
-              <button className="rounded mx-3 border-0" onClick={() => {}}>
-                +
-              </button>
-            </div>
-          </div>
+
+          <div className="text-end d-flex justify-content-end my-2"></div>
           <div className="text-end">
             <button
               className="css-button-sliding-to-left--sky text-decoration-none text-center"
