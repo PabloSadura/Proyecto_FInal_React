@@ -19,7 +19,7 @@ const productos = [
   },
   {
     id: 3,
-    tipo: "onsulta",
+    tipo: "consulta",
     categoria: "otorrino",
     img: "./src/img/consultaMedica.jpg",
     nombre: "Consulta Otorrino",

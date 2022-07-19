@@ -7,7 +7,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addItems = (items) => {
-    isInCart(items.id) ? cart.cantidad++ : setCart([...cart, items]);
+    isInCart(items.id) ? null : setCart([...cart, items]);
   };
 
   const clear = () => {

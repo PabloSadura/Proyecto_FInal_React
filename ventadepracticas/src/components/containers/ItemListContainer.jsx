@@ -5,35 +5,42 @@ import { gFetch } from "../../helpers/BDatos";
 import { Spinner } from "react-bootstrap";
 import ItemsList from "../ItemsList/ItemsList";
 import { useParams } from "react-router-dom";
+import {
+  collection,
+  getDocs,
+  getFirestore,
+  query,
+  where,
+} from "firebase/firestore";
 
 const ItemListContainer = () => {
-  const [products, setProducts] = useState([]);
+  const [categoria, setCategoria] = useState([]);
   const [loading, setLoading] = useState(true);
   const { tipo } = useParams();
 
   useEffect(() => {
+    const db = getFirestore();
+    const queryCategorias = collection(db, "categorias");
+    console.log(tipo);
+
     if (tipo) {
-      gFetch
-        .then((resp) => {
-          setProducts(resp.filter((element) => element.tipo === tipo));
-        })
-        .catch((rej) => {
-          console.log(rej);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+      const queryCategoriaFilter = query(
+        queryCategorias,
+        where("tipo", `==`, `${tipo}`)
+      );
+      getDocs(queryCategoriaFilter)
+        .then((resp) =>
+          setCategoria(resp.docs.map((el) => ({ id: el.id, ...el.data() })))
+        )
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
     } else {
-      gFetch
-        .then((resp) => {
-          setProducts(resp);
-        })
-        .catch((rej) => {
-          console.log(rej);
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+      getDocs(queryCategorias)
+        .then((resp) =>
+          setCategoria(resp.docs.map((el) => ({ id: el.id, ...el.data() })))
+        )
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
     }
   }, [tipo]);
 
@@ -42,7 +49,7 @@ const ItemListContainer = () => {
       <Spinner animation="border" role="status" variant="info" />
     </div>
   ) : (
-    <ItemsList producto={products} />
+    <ItemsList producto={categoria} />
   );
 };
 
