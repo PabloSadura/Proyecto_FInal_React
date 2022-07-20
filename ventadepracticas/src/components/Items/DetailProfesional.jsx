@@ -2,14 +2,14 @@ import React from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { Spinner } from "react-bootstrap";
+import { Spinner, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../../Context/CartContext";
 
 function DetailProfesional() {
   const [cart, setCart, addItems] = useContext(CartContext);
-
+  const [valor, setValor] = useState([]);
   const [profesional, setProfesional] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -25,10 +25,17 @@ function DetailProfesional() {
       .finally(() => setLoading(false));
   }, []);
 
-  const { nombre, localidad, rate, img, especialidad, cantidad, descripcion } =
-    profesional;
+  const {
+    nombre,
+    localidad,
+    rate,
+    img,
+    especialidad,
+    cantidad,
+    practica1,
+    practica2,
+  } = profesional;
 
-  console.log(profesional);
   let stars = [];
   for (let i = 0; i < rate; i++) {
     stars[i] = <FontAwesomeIcon icon={faStar} />;
@@ -54,13 +61,31 @@ function DetailProfesional() {
             <FontAwesomeIcon icon={faLocationDot} />
             <span> {localidad}</span>
           </p>
-          <p>{descripcion}</p>
-          <p>{}</p>
-
-          <div className="text-end d-flex justify-content-end my-2"></div>
+          <div className="d-flex justify-content-between">
+            <div>
+              <label htmlFor="selectToastPlacement">Elegir Práctica</label>
+              <Form.Select
+                id="selectToastPlacement"
+                className="mt-2"
+                onChange={(e) => setValor(e.currentTarget.value)}
+              >
+                {[practica1, practica2].map((p) => (
+                  <>
+                    <option key={p} value={p.precio}>
+                      {p.practica}
+                    </option>
+                  </>
+                ))}
+              </Form.Select>
+            </div>
+            <div>
+              <p>Cantidad: {cantidad}</p>
+            </div>
+            <div>$ {valor}</div>
+          </div>
           <div className="text-end">
             <button
-              className="css-button-sliding-to-left--sky text-decoration-none text-center"
+              className="css-button-sliding-to-left--sky text-decoration-none text-center mt-4"
               onClick={() => {
                 addItems(profesional);
               }}

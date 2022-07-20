@@ -17,7 +17,7 @@ function Cart() {
   return (
     <Container>
       {cart.map((el) => (
-        <CartItems cart={el} />
+        <CartItems cart={el} key={el.id} />
       ))}
       <Button onClick={clear} className="mt-4">
         Vaciar Carrito
