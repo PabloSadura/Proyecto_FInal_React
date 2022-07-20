@@ -8,12 +8,16 @@ import "./CartWidget.css";
 function CartWidget() {
   const [cart] = useContext(CartContext);
 
+  const sumaCant = () => {
+    return cart.map((el) => el.cantidad).reduce((prev, curr) => prev + curr, 0);
+  };
+
   return (
     <div className="d-flex align-center">
       <div className="iconCart me-3">
-        <FontAwesomeIcon icon={faShoppingCart} /> ({cart.length})
+        <FontAwesomeIcon icon={faShoppingCart} /> ({sumaCant()})
       </div>
-      {cart.length ? (
+      {cart ? (
         <button className="css-button-fully-rounded--sand text-decoration-none">
           Finalizar Compra
         </button>
