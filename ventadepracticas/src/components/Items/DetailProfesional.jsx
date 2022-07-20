@@ -6,10 +6,9 @@ import { Spinner, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../../Context/CartContext";
+import ItemCount from "./itemsCount/ItemCount";
 
 function DetailProfesional() {
-  const [cart, setCart, addItems] = useContext(CartContext);
-  const [valor, setValor] = useState([]);
   const [profesional, setProfesional] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -25,16 +24,8 @@ function DetailProfesional() {
       .finally(() => setLoading(false));
   }, []);
 
-  const {
-    nombre,
-    localidad,
-    rate,
-    img,
-    especialidad,
-    cantidad,
-    practica1,
-    practica2,
-  } = profesional;
+  const { nombre, localidad, rate, img, especialidad, practica1, practica2 } =
+    profesional;
 
   let stars = [];
   for (let i = 0; i < rate; i++) {
@@ -58,40 +49,26 @@ function DetailProfesional() {
           <p className="">{especialidad}</p>
           <p>
             {" "}
-            <FontAwesomeIcon icon={faLocationDot} />
+            <FontAwesomeIcon icon={faLocationDot} key={id} />
             <span> {localidad}</span>
           </p>
           <div className="d-flex justify-content-between">
             <div>
-              <label htmlFor="selectToastPlacement">Elegir Práctica</label>
-              <Form.Select
-                id="selectToastPlacement"
-                className="mt-2"
-                onChange={(e) => setValor(e.currentTarget.value)}
-              >
+              <h4>Practicas Ofrecidas:</h4>
+              <ul>
                 {[practica1, practica2].map((p) => (
                   <>
-                    <option key={p} value={p.precio}>
-                      {p.practica}
-                    </option>
+                    <li>
+                      {p.practica}{" "}
+                      <span className="fw-bolder ms-3"> ${p.precio}</span>
+                    </li>
                   </>
                 ))}
-              </Form.Select>
+              </ul>
             </div>
-            <div>
-              <p>Cantidad: {cantidad}</p>
-            </div>
-            <div>$ {valor}</div>
           </div>
           <div className="text-end">
-            <button
-              className="css-button-sliding-to-left--sky text-decoration-none text-center mt-4"
-              onClick={() => {
-                addItems(profesional);
-              }}
-            >
-              Contratar
-            </button>
+            <ItemCount profesional={profesional} key={id} />
           </div>
         </div>
       </div>

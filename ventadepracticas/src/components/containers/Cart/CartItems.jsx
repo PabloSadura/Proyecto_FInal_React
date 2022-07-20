@@ -4,20 +4,14 @@ import { useContext } from "react";
 import { CartContext } from "../../../Context/CartContext";
 import "./Cart.css";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
-function CartItems({ cart }) {
+function CartItems({ items }) {
   const [valor, setValor] = useState([]);
-  const {
-    nombre,
-    cantidad,
-    especialidad,
-    categoria,
-    id,
-    img,
-    practica1,
-    practica2,
-  } = cart;
-  const [removeItem] = useContext(CartContext);
+  const [cart, setCart, addCount, minusCount] = useContext(CartContext);
+  const { nombre, cantidad, especialidad, img, practica1, practica2, id } =
+    items;
 
   return (
     <div className="border mt-3 p-3 rounded shadow d-flex justify-content-evenly">
@@ -29,12 +23,14 @@ function CartItems({ cart }) {
         </div>
       </div>
       <div>
-        <label htmlFor="selectToastPlacement">Elegir Práctica</label>
         <Form.Select
           id="selectToastPlacement"
           className="mt-2"
           onChange={(e) => setValor(e.currentTarget.value)}
         >
+          <>
+            <option value="">Elegir práctica</option>
+          </>
           {[practica1, practica2].map((p) => (
             <>
               <option key={p} value={p.precio}>
@@ -45,8 +41,25 @@ function CartItems({ cart }) {
         </Form.Select>
       </div>
       <div>
-        <h5>Cantidad: {cantidad}</h5>
-        <h2>${valor}</h2>
+        <div className="d-flex">
+          <h5>Cantidad:</h5>
+          <FontAwesomeIcon
+            icon={faPlusCircle}
+            className="btn"
+            onClick={() => {
+              addCount(items);
+            }}
+          />
+          <h5 className="mx-2">{cantidad}</h5>
+          <FontAwesomeIcon
+            icon={faMinusCircle}
+            className="btn"
+            onClick={() => {
+              minusCount(items);
+            }}
+          />
+        </div>
+        <h2>${valor * cantidad}</h2>
       </div>
     </div>
   );
