@@ -9,9 +9,8 @@ import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 function CartItems({ items }) {
   const [valor, setValor] = useState([]);
-  const [cart, setCart, addCount, minusCount] = useContext(CartContext);
-  const { nombre, cantidad, especialidad, img, practica1, practica2, id } =
-    items;
+  const [cart, setCart, addCount, removeCount] = useContext(CartContext);
+  const { nombre, cantidad, especialidad, img, practica1, practica2 } = items;
 
   return (
     <div className="border mt-3 p-3 rounded shadow d-flex justify-content-evenly">
@@ -55,7 +54,7 @@ function CartItems({ items }) {
             icon={faMinusCircle}
             className="btn"
             onClick={() => {
-              minusCount(items);
+              removeCount(items);
             }}
           />
         </div>

@@ -6,15 +6,18 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [counter, setCounter] = useState(1);
+  const [count, setCount] = useState(0);
 
   const addItems = (items) => {
+    let newCart;
     if (isInCart(items.id)) {
       let index = cart.findIndex((el) => el.id === items.id);
       cart[index].cantidad++;
+      newCart = [...cart];
     } else {
-      setCart([...cart, items]);
+      newCart = [...cart, items];
     }
+    setCart(newCart);
   };
 
   const addCount = (items) => {
@@ -22,14 +25,12 @@ export const CartProvider = ({ children }) => {
     cart[index].cantidad++;
   };
 
-  const minusCount = (items) => {
-    let index = cart.findIndex((el) => el.id === items.id);
-    console.log(cart[index]);
-    cart[index].cantidad ? cart[index].cantidad-- : null;
+  const removeCount = (items) => {
+    console.log(items);
   };
 
   const clear = () => {
-    setCart();
+    setCart([]);
   };
 
   const isInCart = (id) => {
@@ -39,6 +40,7 @@ export const CartProvider = ({ children }) => {
   const removeItem = (id) => {
     setCart(cart.filter((item) => item.id !== id));
   };
+
   return (
     <CartContext.Provider
       value={[
@@ -49,7 +51,7 @@ export const CartProvider = ({ children }) => {
         clear,
         isInCart,
         addCount,
-        minusCount,
+        removeCount,
       ]}
     >
       {children}

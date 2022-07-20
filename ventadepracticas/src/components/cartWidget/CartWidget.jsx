@@ -1,23 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 import "./CartWidget.css";
+import { useEffect } from "react";
 
 function CartWidget() {
   const [cart] = useContext(CartContext);
+  const [count, setCount] = useState([]);
 
-  const sumaCant = () => {
-    return cart.map((el) => el.cantidad).reduce((prev, curr) => prev + curr, 0);
-  };
+  useEffect(() => {
+    if (cart) {
+      setCount(
+        cart.map((el) => el.cantidad).reduce((prev, curr) => prev + curr, 0)
+      );
+    }
+  }, [cart]);
 
   return (
     <div className="d-flex align-center">
       <div className="iconCart me-3">
-        <FontAwesomeIcon icon={faShoppingCart} /> ({sumaCant()})
+        <FontAwesomeIcon icon={faShoppingCart} /> ({count})
       </div>
-      {cart ? (
+      {cart.length ? (
         <button className="css-button-fully-rounded--sand text-decoration-none">
           Finalizar Compra
         </button>

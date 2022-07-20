@@ -21,7 +21,6 @@ const ItemListContainer = () => {
   useEffect(() => {
     const db = getFirestore();
     const queryCategorias = collection(db, "categorias");
-    console.log(tipo);
 
     if (tipo) {
       const queryCategoriaFilter = query(
