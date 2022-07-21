@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { Button, Container } from "react-bootstrap";
 import { CartContext } from "../../../Context/CartContext";
+import SweetAlert from "../../sweetAlert/SweetAlert";
 
 import CartItems from "./CartItems";
 function Cart() {
@@ -29,9 +30,7 @@ function Cart() {
       {cart.map((el) => (
         <CartItems items={el} key={el.id} />
       ))}
-      <Button onClick={clear} className="mt-4">
-        Vaciar Carrito
-      </Button>
+      <SweetAlert />
     </Container>
   );
 }
