@@ -5,7 +5,16 @@ import { Button, Container } from "react-bootstrap";
 import { CartContext } from "../../../Context/CartContext";
 import CartItems from "./CartItems";
 function Cart() {
-  const [cart, clear] = useContext(CartContext);
+  const [
+    cart,
+    setCart,
+    addItems,
+    removeItem,
+    clear,
+    isInCart,
+    addCount,
+    removeCount,
+  ] = useContext(CartContext);
 
   if (!cart.length) {
     return (

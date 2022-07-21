@@ -9,7 +9,17 @@ import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 function CartItems({ items }) {
   const [valor, setValor] = useState([]);
-  const [cart, setCart, addCount, removeCount] = useContext(CartContext);
+  const [
+    cart,
+    setCart,
+    addItems,
+    removeItem,
+    clear,
+    isInCart,
+    addCount,
+    removeCount,
+  ] = useContext(CartContext);
+
   const { nombre, cantidad, especialidad, img, practica1, practica2 } = items;
 
   return (

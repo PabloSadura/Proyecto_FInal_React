@@ -21,12 +21,19 @@ export const CartProvider = ({ children }) => {
   };
 
   const addCount = (items) => {
+    let newCart;
     let index = cart.findIndex((el) => el.id === items.id);
     cart[index].cantidad++;
+    newCart = [...cart];
+    setCart(newCart);
   };
 
   const removeCount = (items) => {
-    console.log(items);
+    let newCart;
+    let index = cart.findIndex((el) => el.id === items.id);
+    cart[index].cantidad > 1 ? cart[index].cantidad-- : null;
+    newCart = [...cart];
+    setCart(newCart);
   };
 
   const clear = () => {
