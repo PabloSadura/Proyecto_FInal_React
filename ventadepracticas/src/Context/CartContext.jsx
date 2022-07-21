@@ -6,7 +6,6 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [count, setCount] = useState(0);
 
   const addItems = (items) => {
     let newCart;
@@ -44,8 +43,8 @@ export const CartProvider = ({ children }) => {
     return cart.find((item) => item.id === id) ? true : false;
   };
 
-  const removeItem = (id) => {
-    setCart(cart.filter((item) => item.id !== id));
+  const removeItem = (items) => {
+    setCart(cart.filter((el) => el.id !== items.id));
   };
 
   return (

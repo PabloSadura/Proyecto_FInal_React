@@ -5,7 +5,13 @@ import { CartContext } from "../../../Context/CartContext";
 import "./Cart.css";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinusCircle, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMinusCircle,
+  faPlusCircle,
+  faTrashAlt,
+} from "@fortawesome/free-solid-svg-icons";
+
+import "./cart.css";
 
 function CartItems({ items }) {
   const [valor, setValor] = useState([]);
@@ -53,22 +59,29 @@ function CartItems({ items }) {
         <div className="d-flex">
           <h5>Cantidad:</h5>
           <FontAwesomeIcon
-            icon={faPlusCircle}
-            className="btn"
-            onClick={() => {
-              addCount(items);
-            }}
-          />
-          <h5 className="mx-2">{cantidad}</h5>
-          <FontAwesomeIcon
             icon={faMinusCircle}
-            className="btn"
+            className="icons"
             onClick={() => {
               removeCount(items);
             }}
           />
+          <h5 className="mx-2">{cantidad}</h5>
+          <FontAwesomeIcon
+            icon={faPlusCircle}
+            className="icons"
+            onClick={() => {
+              addCount(items);
+            }}
+          />
+          <FontAwesomeIcon
+            icon={faTrashAlt}
+            className="ms-3 icons"
+            onClick={() => {
+              removeItem(items);
+            }}
+          />
         </div>
-        <h2>${valor * cantidad}</h2>
+        <h2 className="text-end mt-3">${valor * cantidad}</h2>
       </div>
     </div>
   );
