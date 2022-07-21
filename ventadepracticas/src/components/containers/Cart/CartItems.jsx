@@ -48,7 +48,7 @@ function CartItems({ items }) {
           </>
           {[practica1, practica2].map((p) => (
             <>
-              <option key={p} value={p.precio}>
+              <option key={p.id} value={p.precio}>
                 {p.practica}
               </option>
             </>
