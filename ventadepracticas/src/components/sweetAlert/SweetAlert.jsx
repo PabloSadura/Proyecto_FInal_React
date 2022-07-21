@@ -43,7 +43,7 @@ function SweetAlert() {
         Vaciar Carrito
       </button>
       <Link
-        to={"/creditCard/"}
+        to={"/payLoad"}
         className="css-button-rounded--green ms-4 text-decoration-none"
       >
         Finalizar Compra
