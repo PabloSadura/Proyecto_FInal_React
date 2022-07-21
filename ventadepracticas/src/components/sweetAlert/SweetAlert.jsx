@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { CartContext } from "../../Context/CartContext";
@@ -41,9 +42,12 @@ function SweetAlert() {
       <button onClick={sweet} className="css-button-rounded--red mt-3 ">
         Vaciar Carrito
       </button>
-      <button className="css-button-rounded--green mt-3 ms-4 ">
+      <Link
+        to={"/creditCard/"}
+        className="css-button-rounded--green ms-4 text-decoration-none"
+      >
         Finalizar Compra
-      </button>
+      </Link>
     </div>
   );
 }
