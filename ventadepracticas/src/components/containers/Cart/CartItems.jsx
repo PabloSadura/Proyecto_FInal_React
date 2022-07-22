@@ -26,8 +26,8 @@ function CartItems({ items }) {
     removeCount,
   ] = useContext(CartContext);
 
-  const { nombre, cantidad, especialidad, img, precio } = items;
-
+  const { nombre, cantidad, especialidad, img, total } = items;
+  console.log(items);
   return (
     <div className="border mt-3 p-3 rounded shadow d-flex justify-content-evenly">
       <div className="d-flex">
@@ -64,7 +64,7 @@ function CartItems({ items }) {
             }}
           />
         </div>
-        <h2 className="text-end mt-3">${precio * cantidad}</h2>
+        <h2 className="text-end mt-3">$ {total}</h2>
       </div>
     </div>
   );

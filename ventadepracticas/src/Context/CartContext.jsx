@@ -23,6 +23,7 @@ export const CartProvider = ({ children }) => {
     let newCart;
     let index = cart.findIndex((el) => el.id === items.id);
     cart[index].cantidad++;
+    cart[index].total = cart[index].precio * cart[index].cantidad;
     newCart = [...cart];
     setCart(newCart);
   };
@@ -31,6 +32,7 @@ export const CartProvider = ({ children }) => {
     let newCart;
     let index = cart.findIndex((el) => el.id === items.id);
     cart[index].cantidad > 1 ? cart[index].cantidad-- : null;
+    cart[index].total = cart[index].precio * cart[index].cantidad;
     newCart = [...cart];
     setCart(newCart);
   };

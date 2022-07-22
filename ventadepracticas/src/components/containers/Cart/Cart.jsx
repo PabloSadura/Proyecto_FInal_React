@@ -30,6 +30,13 @@ function Cart() {
       {cart.map((el) => (
         <CartItems items={el} key={el.id} />
       ))}
+      <div className="d-flex justify-content-end m-4">
+        <h4 className="me-4">Total a pagar: </h4>
+        <h4 className="">
+          {" "}
+          ${cart.map((el) => el.total).reduce((prev, curr) => prev + curr, 0)}
+        </h4>
+      </div>
       <SweetAlert />
     </Container>
   );

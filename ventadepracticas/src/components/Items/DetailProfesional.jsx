@@ -23,23 +23,21 @@ function DetailProfesional() {
     const queryProfesional = doc(db, "profesionales", id);
     getDoc(queryProfesional)
       .then((resp) => {
-        setProfesional({ id: resp.id, ...resp.data(), cantidad: 1 });
+        setProfesional({ id: resp.id, ...resp.data(), cantidad: 0 });
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, []);
 
   const add = (item) => {
-    console.log(item);
     item.cantidad++;
+    item["total"] = item.precio * item.cantidad;
     setProfesional({ ...item });
-    console.log(item);
   };
   const rest = (item) => {
-    console.log(item);
     item.cantidad > 1 ? item.cantidad-- : null;
+    item["total"] = item.precio * item.cantidad;
     setProfesional({ ...item });
-    console.log(item);
   };
 
   const {
@@ -104,7 +102,7 @@ function DetailProfesional() {
                   }}
                 />
               </div>
-              <h4 className="text-end">$ {precio * cantidad}</h4>
+              <h4 className="text-end">$ {profesional.total}</h4>
             </div>
           </div>
           <div className="text-end">
