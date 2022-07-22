@@ -26,7 +26,7 @@ function CartItems({ items }) {
     removeCount,
   ] = useContext(CartContext);
 
-  const { nombre, cantidad, especialidad, img, practica1, practica2 } = items;
+  const { nombre, cantidad, especialidad, img, precio } = items;
 
   return (
     <div className="border mt-3 p-3 rounded shadow d-flex justify-content-evenly">
@@ -37,24 +37,7 @@ function CartItems({ items }) {
           <h6>{especialidad}</h6>
         </div>
       </div>
-      <div>
-        <Form.Select
-          id="selectToastPlacement"
-          className="mt-2"
-          onChange={(e) => setValor(e.currentTarget.value)}
-        >
-          <>
-            <option value="">Elegir práctica</option>
-          </>
-          {[practica1, practica2].map((p) => (
-            <>
-              <option key={p.id} value={p.precio}>
-                {p.practica}
-              </option>
-            </>
-          ))}
-        </Form.Select>
-      </div>
+
       <div>
         <div className="d-flex">
           <h5>Cantidad:</h5>
@@ -81,7 +64,7 @@ function CartItems({ items }) {
             }}
           />
         </div>
-        <h2 className="text-end mt-3">${valor * cantidad}</h2>
+        <h2 className="text-end mt-3">${precio * cantidad}</h2>
       </div>
     </div>
   );

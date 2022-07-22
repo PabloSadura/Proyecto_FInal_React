@@ -11,7 +11,7 @@ function ItemCount({ profesional }) {
       <button
         className="css-button-sliding-to-left--sky text-decoration-none text-center mt-4"
         onClick={() => {
-          addItems({ ...profesional, cantidad: 1 });
+          addItems(profesional);
         }}
       >
         Contratar

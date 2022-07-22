@@ -4,7 +4,12 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { Spinner, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLocationDot,
+  faMinusCircle,
+  faPlusCircle,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 import { CartContext } from "../../Context/CartContext";
 import ItemCount from "./itemsCount/ItemCount";
 
@@ -18,14 +23,35 @@ function DetailProfesional() {
     const queryProfesional = doc(db, "profesionales", id);
     getDoc(queryProfesional)
       .then((resp) => {
-        setProfesional({ id: resp.id, ...resp.data() });
+        setProfesional({ id: resp.id, ...resp.data(), cantidad: 1 });
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, []);
 
-  const { nombre, localidad, rate, img, especialidad, practica1, practica2 } =
-    profesional;
+  const add = (item) => {
+    console.log(item);
+    item.cantidad++;
+    setProfesional({ ...item });
+    console.log(item);
+  };
+  const rest = (item) => {
+    console.log(item);
+    item.cantidad > 1 ? item.cantidad-- : null;
+    setProfesional({ ...item });
+    console.log(item);
+  };
+
+  const {
+    nombre,
+    localidad,
+    rate,
+    img,
+    especialidad,
+    practica,
+    precio,
+    cantidad,
+  } = profesional;
 
   let stars = [];
   for (let i = 0; i < rate; i++) {
@@ -54,17 +80,31 @@ function DetailProfesional() {
           </p>
           <div className="d-flex justify-content-between">
             <div>
-              <h4>Practicas Ofrecidas:</h4>
-              <ul>
-                {[practica1, practica2].map((p) => (
-                  <>
-                    <li>
-                      {p.practica}{" "}
-                      <span className="fw-bolder ms-3"> ${p.precio}</span>
-                    </li>
-                  </>
-                ))}
-              </ul>
+              <h4>Practica Ofrecida:</h4>
+              <h5>
+                {practica} <span>${precio}</span>
+              </h5>
+            </div>
+            <div>
+              <div className="d-flex">
+                <p>Cantidad:</p>
+                <FontAwesomeIcon
+                  icon={faMinusCircle}
+                  className="mx-3"
+                  onClick={() => {
+                    rest(profesional);
+                  }}
+                />
+                <p>{cantidad}</p>
+                <FontAwesomeIcon
+                  icon={faPlusCircle}
+                  className="ms-3"
+                  onClick={() => {
+                    add(profesional);
+                  }}
+                />
+              </div>
+              <h4 className="text-end">$ {precio * cantidad}</h4>
             </div>
           </div>
           <div className="text-end">
