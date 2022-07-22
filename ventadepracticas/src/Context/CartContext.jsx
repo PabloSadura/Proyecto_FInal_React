@@ -12,6 +12,7 @@ export const CartProvider = ({ children }) => {
     if (isInCart(items.id)) {
       let index = cart.findIndex((el) => el.id === items.id);
       cart[index].cantidad++;
+      cart[index].total = cart[index].precio * cart[index].cantidad;
       newCart = [...cart];
     } else {
       newCart = [...cart, items];
