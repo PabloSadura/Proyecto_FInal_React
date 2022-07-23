@@ -14,6 +14,7 @@ function SweetAlert() {
     isInCart,
     addCount,
     removeCount,
+    generateOrder,
   ] = useContext(CartContext);
   const sweet = () => {
     Swal.fire({
@@ -45,6 +46,7 @@ function SweetAlert() {
       <Link
         to={"/payLoad"}
         className="css-button-rounded--green ms-4 text-decoration-none"
+        onClick={generateOrder}
       >
         Generar Orden
       </Link>

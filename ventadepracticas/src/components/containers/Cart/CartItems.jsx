@@ -27,7 +27,7 @@ function CartItems({ items }) {
   ] = useContext(CartContext);
 
   const { nombre, quantity, especialidad, img, total } = items;
-  console.log(items);
+
   return (
     <div className="border mt-3 p-3 rounded shadow d-flex justify-content-evenly">
       <div className="d-flex">

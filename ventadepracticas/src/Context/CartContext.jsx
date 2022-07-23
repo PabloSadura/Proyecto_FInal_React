@@ -7,7 +7,7 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-
+  console.log(cart);
   const addItems = (items) => {
     let newCart;
     if (isInCart(items.id)) {
@@ -58,6 +58,14 @@ export const CartProvider = ({ children }) => {
       email: "pablo@gmail.com",
       telefono: 123456789,
     };
+    order.items = cart.map((el) => {
+      const id = el.id;
+      const price = el.total;
+      const title = el.nombre;
+      const quantity = el.quantity;
+      return { id, price, title, quantity };
+    });
+    console.log(order);
   };
 
   return (
@@ -71,6 +79,7 @@ export const CartProvider = ({ children }) => {
         isInCart,
         addCount,
         removeCount,
+        generateOrder,
       ]}
     >
       {children}
