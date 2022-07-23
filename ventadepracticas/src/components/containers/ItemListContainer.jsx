@@ -1,7 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { gFetch } from "../../helpers/BDatos";
+import { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import ItemsList from "../ItemsList/ItemsList";
 import { useParams } from "react-router-dom";
@@ -21,26 +19,16 @@ const ItemListContainer = () => {
   useEffect(() => {
     const db = getFirestore();
     const queryCategorias = collection(db, "categorias");
+    const queryCategoriaFilter = tipo
+      ? query(queryCategorias, where("tipo", `==`, `${tipo}`))
+      : queryCategorias;
 
-    if (tipo) {
-      const queryCategoriaFilter = query(
-        queryCategorias,
-        where("tipo", `==`, `${tipo}`)
-      );
-      getDocs(queryCategoriaFilter)
-        .then((resp) =>
-          setCategoria(resp.docs.map((el) => ({ id: el.id, ...el.data() })))
-        )
-        .catch((err) => console.log(err))
-        .finally(() => setLoading(false));
-    } else {
-      getDocs(queryCategorias)
-        .then((resp) =>
-          setCategoria(resp.docs.map((el) => ({ id: el.id, ...el.data() })))
-        )
-        .catch((err) => console.log(err))
-        .finally(() => setLoading(false));
-    }
+    getDocs(queryCategoriaFilter)
+      .then((resp) =>
+        setCategoria(resp.docs.map((el) => ({ id: el.id, ...el.data() })))
+      )
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
   }, [tipo]);
 
   return loading ? (

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStarHalfStroke, faStar } from "@fortawesome/free-solid-svg-icons";
 
 function ItemsProfesional({ profesional }) {
-  const { id, rate, nombre, precio, especialidad, localidad } = profesional;
+  const { id, rate, nombre, especialidad, localidad } = profesional;
   return (
     <Card className="text-center mt-3 w-25 mx-1 shadow">
       <Card.Header as="h5">{nombre}</Card.Header>

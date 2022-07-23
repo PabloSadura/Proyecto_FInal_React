@@ -1,9 +1,7 @@
 import React from "react";
-import { Form } from "react-bootstrap";
 import { useContext } from "react";
 import { CartContext } from "../../../Context/CartContext";
 import "./Cart.css";
-import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMinusCircle,
@@ -14,7 +12,6 @@ import {
 import "./cart.css";
 
 function CartItems({ items }) {
-  const [valor, setValor] = useState([]);
   const [
     cart,
     setCart,

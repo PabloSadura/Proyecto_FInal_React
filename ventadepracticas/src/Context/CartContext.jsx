@@ -1,5 +1,3 @@
-import { counter } from "@fortawesome/fontawesome-svg-core";
-import { faPersonChalkboard } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import { createContext } from "react";
 
@@ -7,7 +5,7 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  console.log(cart);
+
   const addItems = (items) => {
     let newCart;
     if (isInCart(items.id)) {
@@ -65,6 +63,7 @@ export const CartProvider = ({ children }) => {
       const quantity = el.quantity;
       return { id, price, title, quantity };
     });
+
     console.log(order);
   };
 

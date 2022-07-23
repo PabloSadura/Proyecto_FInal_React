@@ -1,8 +1,8 @@
 import React from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Spinner, Form } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,
@@ -10,7 +10,7 @@ import {
   faPlusCircle,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
-import { CartContext } from "../../Context/CartContext";
+
 import ItemCount from "./itemsCount/ItemCount";
 
 function DetailProfesional() {
