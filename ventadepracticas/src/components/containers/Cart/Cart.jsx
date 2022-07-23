@@ -15,6 +15,8 @@ function Cart() {
     isInCart,
     addCount,
     removeCount,
+    generateOrder,
+    total,
   ] = useContext(CartContext);
 
   if (!cart.length) {
@@ -31,10 +33,7 @@ function Cart() {
       ))}
       <div className="d-flex justify-content-end m-4">
         <h4 className="me-4">Total a pagar: </h4>
-        <h4 className="">
-          {" "}
-          ${cart.map((el) => el.total).reduce((prev, curr) => prev + curr, 0)}
-        </h4>
+        <h4 className=""> ${total()}</h4>
       </div>
       <SweetAlert />
     </Container>

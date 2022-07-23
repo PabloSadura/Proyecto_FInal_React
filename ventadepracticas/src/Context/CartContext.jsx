@@ -37,6 +37,10 @@ export const CartProvider = ({ children }) => {
     setCart(newCart);
   };
 
+  const total = () => {
+    return cart.map((el) => el.total).reduce((prev, curr) => prev + curr, 0);
+  };
+
   const clear = () => {
     setCart([]);
   };
@@ -63,7 +67,7 @@ export const CartProvider = ({ children }) => {
       const quantity = el.quantity;
       return { id, price, title, quantity };
     });
-
+    order.total = total();
     console.log(order);
   };
 
@@ -79,6 +83,7 @@ export const CartProvider = ({ children }) => {
         addCount,
         removeCount,
         generateOrder,
+        total,
       ]}
     >
       {children}

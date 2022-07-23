@@ -23,7 +23,11 @@ function DetailProfesional() {
     const queryProfesional = doc(db, "profesionales", id);
     getDoc(queryProfesional)
       .then((resp) => {
-        setProfesional({ id: resp.id, ...resp.data(), quantity: 0 });
+        setProfesional({
+          id: resp.id,
+          ...resp.data(),
+          quantity: 1,
+        });
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
@@ -51,10 +55,14 @@ function DetailProfesional() {
     quantity,
   } = profesional;
 
-  let stars = [];
-  for (let i = 0; i < rate; i++) {
-    stars[i] = <FontAwesomeIcon icon={faStar} />;
-  }
+  const star = () => {
+    let stars = [];
+    for (let i = 0; i < rate; i++) {
+      stars[i] = <FontAwesomeIcon icon={faStar} key={i} />;
+    }
+    return stars;
+  };
+
   return loading ? (
     <div className="text-center mt-4">
       <Spinner animation="border" role="status" variant="info" />
@@ -68,7 +76,7 @@ function DetailProfesional() {
         <div className="col-md-6 p-4">
           <div className="d-flex justify-content-between">
             <h3>{nombre}</h3>
-            <h4 className="text-muted">{stars}</h4>
+            <h4 className="text-muted">{star()}</h4>
           </div>
           <p className="">{especialidad}</p>
           <p>
@@ -102,7 +110,7 @@ function DetailProfesional() {
                   }}
                 />
               </div>
-              <h4 className="text-end">$ {profesional.total}</h4>
+              <h4 className="text-end">$ {profesional.precio * quantity}</h4>
             </div>
           </div>
           <div className="text-end">
