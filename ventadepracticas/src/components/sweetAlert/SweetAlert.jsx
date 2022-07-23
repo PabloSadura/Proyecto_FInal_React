@@ -46,7 +46,7 @@ function SweetAlert() {
         to={"/payLoad"}
         className="css-button-rounded--green ms-4 text-decoration-none"
       >
-        Finalizar Compra
+        Generar Orden
       </Link>
     </div>
   );

@@ -23,20 +23,20 @@ function DetailProfesional() {
     const queryProfesional = doc(db, "profesionales", id);
     getDoc(queryProfesional)
       .then((resp) => {
-        setProfesional({ id: resp.id, ...resp.data(), cantidad: 0 });
+        setProfesional({ id: resp.id, ...resp.data(), quantity: 0 });
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, []);
 
   const add = (item) => {
-    item.cantidad++;
-    item["total"] = item.precio * item.cantidad;
+    item.quantity++;
+    item["total"] = item.precio * item.quantity;
     setProfesional({ ...item });
   };
   const rest = (item) => {
-    item.cantidad > 1 ? item.cantidad-- : null;
-    item["total"] = item.precio * item.cantidad;
+    item.quantity > 1 ? item.quantity-- : null;
+    item["total"] = item.precio * item.quantity;
     setProfesional({ ...item });
   };
 
@@ -48,7 +48,7 @@ function DetailProfesional() {
     especialidad,
     practica,
     precio,
-    cantidad,
+    quantity,
   } = profesional;
 
   let stars = [];
@@ -93,7 +93,7 @@ function DetailProfesional() {
                     rest(profesional);
                   }}
                 />
-                <p>{cantidad}</p>
+                <p>{quantity}</p>
                 <FontAwesomeIcon
                   icon={faPlusCircle}
                   className="ms-3"

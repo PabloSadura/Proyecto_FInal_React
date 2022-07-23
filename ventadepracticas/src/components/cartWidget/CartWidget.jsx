@@ -13,7 +13,7 @@ function CartWidget() {
   useEffect(() => {
     if (cart) {
       setCount(
-        cart.map((el) => el.cantidad).reduce((prev, curr) => prev + curr, 0)
+        cart.map((el) => el.quantity).reduce((prev, curr) => prev + curr, 0)
       );
     }
   }, [cart]);

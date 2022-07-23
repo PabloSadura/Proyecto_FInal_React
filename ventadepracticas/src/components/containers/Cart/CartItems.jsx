@@ -26,7 +26,7 @@ function CartItems({ items }) {
     removeCount,
   ] = useContext(CartContext);
 
-  const { nombre, cantidad, especialidad, img, total } = items;
+  const { nombre, quantity, especialidad, img, total } = items;
   console.log(items);
   return (
     <div className="border mt-3 p-3 rounded shadow d-flex justify-content-evenly">
@@ -48,7 +48,7 @@ function CartItems({ items }) {
               removeCount(items);
             }}
           />
-          <h5 className="mx-2">{cantidad}</h5>
+          <h5 className="mx-2">{quantity}</h5>
           <FontAwesomeIcon
             icon={faPlusCircle}
             className="icons"

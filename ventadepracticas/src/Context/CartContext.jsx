@@ -1,4 +1,5 @@
 import { counter } from "@fortawesome/fontawesome-svg-core";
+import { faPersonChalkboard } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import { createContext } from "react";
 
@@ -11,8 +12,8 @@ export const CartProvider = ({ children }) => {
     let newCart;
     if (isInCart(items.id)) {
       let index = cart.findIndex((el) => el.id === items.id);
-      cart[index].cantidad++;
-      cart[index].total = cart[index].precio * cart[index].cantidad;
+      cart[index].quantity++;
+      cart[index].total = cart[index].precio * cart[index].quantity;
       newCart = [...cart];
     } else {
       newCart = [...cart, items];
@@ -23,8 +24,8 @@ export const CartProvider = ({ children }) => {
   const addCount = (items) => {
     let newCart;
     let index = cart.findIndex((el) => el.id === items.id);
-    cart[index].cantidad++;
-    cart[index].total = cart[index].precio * cart[index].cantidad;
+    cart[index].quantity++;
+    cart[index].total = cart[index].precio * cart[index].quantity;
     newCart = [...cart];
     setCart(newCart);
   };
@@ -32,8 +33,8 @@ export const CartProvider = ({ children }) => {
   const removeCount = (items) => {
     let newCart;
     let index = cart.findIndex((el) => el.id === items.id);
-    cart[index].cantidad > 1 ? cart[index].cantidad-- : null;
-    cart[index].total = cart[index].precio * cart[index].cantidad;
+    cart[index].quantity > 1 ? cart[index].quantity-- : null;
+    cart[index].total = cart[index].precio * cart[index].quantity;
     newCart = [...cart];
     setCart(newCart);
   };
@@ -48,6 +49,15 @@ export const CartProvider = ({ children }) => {
 
   const removeItem = (items) => {
     setCart(cart.filter((el) => el.id !== items.id));
+  };
+
+  const generateOrder = () => {
+    const order = {};
+    order.buyer = {
+      nombre: "Pablo",
+      email: "pablo@gmail.com",
+      telefono: 123456789,
+    };
   };
 
   return (
