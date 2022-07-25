@@ -23,13 +23,7 @@ function CartWidget() {
       <div className="iconCart me-3">
         <FontAwesomeIcon icon={faShoppingCart} /> ({count})
       </div>
-      {cart.length ? (
-        <button className="css-button-fully-rounded--sand text-decoration-none">
-          Finalizar Compra
-        </button>
-      ) : (
-        <p className="aling-center m-0">Mi Compra</p>
-      )}
+      <p className="aling-center m-0">Mi Compra</p>
     </div>
   );
 }
