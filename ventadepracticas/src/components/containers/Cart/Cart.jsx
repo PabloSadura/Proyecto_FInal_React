@@ -4,8 +4,8 @@ import { Container } from "react-bootstrap";
 import { CartContext } from "../../../Context/CartContext";
 import FormOrder from "../../form/FormOrder";
 import SweetAlert from "../../sweetAlert/SweetAlert";
-
 import CartItems from "./CartItems";
+
 function Cart() {
   const { cart, total } = useContext(CartContext);
 
@@ -19,10 +19,12 @@ function Cart() {
   return (
     <Container>
       <div className="d-flex">
-        {cart.map((el) => (
-          <CartItems items={el} key={el.id} />
-        ))}
-        <FormOrder />
+        <div className="col-md-6 ">
+          {cart.map((el) => (
+            <CartItems items={el} key={el.id} />
+          ))}
+        </div>
+        <FormOrder className="col-md-6" />
       </div>
 
       <div className="d-flex justify-content-end m-4">

@@ -18,76 +18,80 @@ function FormOrder() {
     setValidated(true);
   };
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+    <Form
+      noValidate
+      validated={validated}
+      onSubmit={handleSubmit}
+      className="mt-3 ms-4 p-3 border"
+    >
       <Row className="mb-3">
         <Form.Group as={Col} md="4" controlId="validationCustom01">
-          <Form.Label>First name</Form.Label>
+          <Form.Label>Nombre</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="First name"
+            placeholder="Nombre"
             defaultValue="Mark"
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustom02">
-          <Form.Label>Last name</Form.Label>
+          <Form.Label>Apellido</Form.Label>
           <Form.Control
             required
             type="text"
-            placeholder="Last name"
+            placeholder="Apellido"
             defaultValue="Otto"
           />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          <Form.Control.Feedback>Correcto!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-          <Form.Label>Username</Form.Label>
+          <Form.Label>Email</Form.Label>
           <InputGroup hasValidation>
             <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
             <Form.Control
               type="text"
-              placeholder="Username"
+              placeholder="email"
               aria-describedby="inputGroupPrepend"
               required
             />
             <Form.Control.Feedback type="invalid">
-              Please choose a username.
+              Favor de ingresar un email
             </Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} md="6" controlId="validationCustom03">
-          <Form.Label>City</Form.Label>
-          <Form.Control type="text" placeholder="City" required />
+          <Form.Label>Ciudad</Form.Label>
+          <Form.Control type="text" placeholder="Ciudad" required />
           <Form.Control.Feedback type="invalid">
-            Please provide a valid city.
+            Favor de ingresar un campo valido.
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="3" controlId="validationCustom04">
-          <Form.Label>State</Form.Label>
-          <Form.Control type="text" placeholder="State" required />
+          <Form.Label>Provincia</Form.Label>
+          <Form.Control type="text" placeholder="Provincia" required />
           <Form.Control.Feedback type="invalid">
-            Please provide a valid state.
+            Favor de ingresar un campo valido.
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="3" controlId="validationCustom05">
-          <Form.Label>Zip</Form.Label>
-          <Form.Control type="text" placeholder="Zip" required />
+          <Form.Label>Código Postal</Form.Label>
+          <Form.Control type="text" placeholder="CP" required />
           <Form.Control.Feedback type="invalid">
-            Please provide a valid zip.
+            Favor de ingresar un campo valido zip.
           </Form.Control.Feedback>
         </Form.Group>
       </Row>
       <Form.Group className="mb-3">
         <Form.Check
           required
-          label="Agree to terms and conditions"
-          feedback="You must agree before submitting."
+          label="Aceptar Terminos y Condiciones"
+          feedback="Debe aceptar para poder continuar"
           feedbackType="invalid"
         />
       </Form.Group>
-      <Button type="submit">Submit form</Button>
     </Form>
   );
 }

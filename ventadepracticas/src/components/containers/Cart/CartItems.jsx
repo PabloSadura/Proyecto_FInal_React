@@ -17,8 +17,8 @@ function CartItems({ items }) {
   const { nombre, quantity, especialidad, img, precio } = items;
 
   return (
-    <div className="border mt-3 p-4 rounded shadow d-flex justify-content-between">
-      <div className="d-flex">
+    <div className="border mt-3 p-4 rounded shadow target">
+      <div className="d-flex justify-content-start">
         <img src={img} alt="" className="imagen me-4" />
         <div>
           <h3>{nombre}</h3>
@@ -26,8 +26,8 @@ function CartItems({ items }) {
         </div>
       </div>
 
-      <div>
-        <div className="d-flex">
+      <div className="row">
+        <div className="d-flex justify-content-end mt-3">
           <h5>Cantidad:</h5>
           <FontAwesomeIcon
             icon={faMinusCircle}
@@ -52,7 +52,7 @@ function CartItems({ items }) {
             }}
           />
         </div>
-        <h2 className="text-end mt-3">$ {quantity * precio}</h2>
+        <h2 className="text-end mt-2">$ {quantity * precio}</h2>
       </div>
     </div>
   );
