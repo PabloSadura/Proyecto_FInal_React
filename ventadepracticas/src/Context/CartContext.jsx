@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { createContext } from "react";
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [user, setUser] = useState([]);
 
   const addItems = (items) => {
     let newCart;
@@ -18,6 +21,10 @@ export const CartProvider = ({ children }) => {
     }
     setCart(newCart);
   };
+
+  useEffect(() => {
+    setUser({ name: "", email: "", phone: "" });
+  }, []);
 
   const addCount = (items) => {
     let newCart;
@@ -63,9 +70,9 @@ export const CartProvider = ({ children }) => {
   const generateOrder = () => {
     const order = {};
     order.buyer = {
-      nombre: "Pablo",
-      email: "pablo@gmail.com",
-      telefono: 123456789,
+      nombre: user.name,
+      email: user.email,
+      telefono: user.phone,
     };
     order.items = cart.map((el) => {
       const id = el.id;
@@ -76,6 +83,15 @@ export const CartProvider = ({ children }) => {
     });
     order.total = total();
     console.log(order);
+
+    const db = getFirestore();
+    const queryInsert = collection(db, "orders");
+    addDoc(queryInsert, order)
+      .then((resp) => {
+        console.log(resp);
+      })
+      .catch((err) => console.log(err));
+    setCart([]);
   };
 
   return (
@@ -91,6 +107,8 @@ export const CartProvider = ({ children }) => {
         removeCount,
         generateOrder,
         total,
+        user,
+        setUser,
       }}
     >
       {children}

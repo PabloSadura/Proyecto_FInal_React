@@ -18,15 +18,12 @@ function CartItems({ items }) {
 
   return (
     <div className="border mt-3 p-4 rounded shadow target">
-      <div className="d-flex justify-content-start">
+      <div className="d-flex justify-content-between">
         <img src={img} alt="" className="imagen me-4" />
         <div>
           <h3>{nombre}</h3>
           <h6>{especialidad}</h6>
         </div>
-      </div>
-
-      <div className="row">
         <div className="d-flex justify-content-end mt-3">
           <h5>Cantidad:</h5>
           <FontAwesomeIcon
@@ -52,6 +49,9 @@ function CartItems({ items }) {
             }}
           />
         </div>
+      </div>
+
+      <div className="row">
         <h2 className="text-end mt-2">$ {quantity * precio}</h2>
       </div>
     </div>

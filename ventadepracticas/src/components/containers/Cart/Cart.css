@@ -14,13 +14,3 @@
   transition: 0.5s;
   transform: scale(1.5);
 }
-
-.target {
-  height: 40%;
-}
-.target div {
-  height: 2em;
-}
-.target img {
-  height: 5rem;
-}
