@@ -6,18 +6,7 @@ import SweetAlert from "../../sweetAlert/SweetAlert";
 
 import CartItems from "./CartItems";
 function Cart() {
-  const [
-    cart,
-    setCart,
-    addItems,
-    removeItem,
-    clear,
-    isInCart,
-    addCount,
-    removeCount,
-    generateOrder,
-    total,
-  ] = useContext(CartContext);
+  const { cart, total } = useContext(CartContext);
 
   if (!cart.length) {
     return (

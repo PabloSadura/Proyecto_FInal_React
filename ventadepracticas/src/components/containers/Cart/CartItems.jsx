@@ -12,19 +12,11 @@ import {
 import "./cart.css";
 
 function CartItems({ items }) {
-  const [
-    cart,
-    setCart,
-    addItems,
-    removeItem,
-    clear,
-    isInCart,
-    addCount,
-    removeCount,
-  ] = useContext(CartContext);
+  const { removeItem, addCount, removeCount } = useContext(CartContext);
 
-  const { nombre, quantity, especialidad, img, total } = items;
+  const { nombre, quantity, especialidad, img, precio } = items;
 
+  console.log(items);
   return (
     <div className="border mt-3 p-3 rounded shadow d-flex justify-content-evenly">
       <div className="d-flex">
@@ -61,7 +53,7 @@ function CartItems({ items }) {
             }}
           />
         </div>
-        <h2 className="text-end mt-3">$ {total}</h2>
+        <h2 className="text-end mt-3">$ {quantity * precio}</h2>
       </div>
     </div>
   );

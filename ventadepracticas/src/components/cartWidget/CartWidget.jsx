@@ -7,7 +7,7 @@ import "./CartWidget.css";
 import { useEffect } from "react";
 
 function CartWidget() {
-  const [cart] = useContext(CartContext);
+  const { cart } = useContext(CartContext);
   const [count, setCount] = useState([]);
 
   useEffect(() => {

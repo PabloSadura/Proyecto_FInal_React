@@ -4,7 +4,7 @@ import { useState } from "react";
 import { CartContext } from "../../../Context/CartContext";
 
 function ItemCount({ profesional }) {
-  const [cart, setCart, addItems] = useContext(CartContext);
+  const { addItems } = useContext(CartContext);
 
   return (
     <div>

@@ -5,17 +5,8 @@ import Swal from "sweetalert2";
 import { CartContext } from "../../Context/CartContext";
 import "./SweetAlert.css";
 function SweetAlert() {
-  const [
-    cart,
-    setCart,
-    addItems,
-    removeItem,
-    clear,
-    isInCart,
-    addCount,
-    removeCount,
-    generateOrder,
-  ] = useContext(CartContext);
+  const { clear, generateOrder } = useContext(CartContext);
+
   const sweet = () => {
     Swal.fire({
       title: "Esta seguro que desea vaciar el carrito?",
