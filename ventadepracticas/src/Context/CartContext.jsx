@@ -37,8 +37,15 @@ export const CartProvider = ({ children }) => {
     setCart(newCart);
   };
 
+  const totalItems = (el) => {
+    return el.precio * el.quantity;
+  };
+
   const total = () => {
-    return cart.map((el) => el.total).reduce((prev, curr) => prev + curr, 0);
+    cart["total"] = cart
+      .map((el) => totalItems(el))
+      .reduce((prev, curr) => prev + curr, 0);
+    return cart.total;
   };
 
   const clear = () => {

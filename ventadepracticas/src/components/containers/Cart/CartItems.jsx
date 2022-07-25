@@ -16,9 +16,8 @@ function CartItems({ items }) {
 
   const { nombre, quantity, especialidad, img, precio } = items;
 
-  console.log(items);
   return (
-    <div className="border mt-3 p-3 rounded shadow d-flex justify-content-evenly">
+    <div className="border mt-3 p-4 rounded shadow d-flex justify-content-between">
       <div className="d-flex">
         <img src={img} alt="" className="imagen me-4" />
         <div>

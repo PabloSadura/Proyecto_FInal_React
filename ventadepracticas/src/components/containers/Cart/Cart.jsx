@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { Container } from "react-bootstrap";
 import { CartContext } from "../../../Context/CartContext";
+import FormOrder from "../../form/FormOrder";
 import SweetAlert from "../../sweetAlert/SweetAlert";
 
 import CartItems from "./CartItems";
@@ -17,9 +18,13 @@ function Cart() {
   }
   return (
     <Container>
-      {cart.map((el) => (
-        <CartItems items={el} key={el.id} />
-      ))}
+      <div className="d-flex">
+        {cart.map((el) => (
+          <CartItems items={el} key={el.id} />
+        ))}
+        <FormOrder />
+      </div>
+
       <div className="d-flex justify-content-end m-4">
         <h4 className="me-4">Total a pagar: </h4>
         <h4 className=""> ${total()}</h4>
