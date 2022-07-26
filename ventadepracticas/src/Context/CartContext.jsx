@@ -10,6 +10,13 @@ export const CartProvider = ({ children }) => {
   const [user, setUser] = useState([]);
   const [order, setOrder] = useState([]);
 
+  // SETEO EL USUARIO CON LOS DATOS REQUERIDOS
+  useEffect(() => {
+    setUser({ name: "", email: "", phone: "" });
+  }, []);
+
+  // FUNCION QUE AGREGAR AL CARRITO EL PROFESIONAL
+
   const addItems = (items) => {
     let newCart;
     if (isInCart(items.id)) {
@@ -22,11 +29,7 @@ export const CartProvider = ({ children }) => {
     }
     setCart(newCart);
   };
-
-  useEffect(() => {
-    setUser({ name: "", email: "", phone: "" });
-  }, []);
-
+  // AGREGO CANTIDAD A UN PROF EXISTENTE EN EL CART
   const addCount = (items) => {
     let newCart;
     let index = cart.findIndex((el) => el.id === items.id);
@@ -35,6 +38,7 @@ export const CartProvider = ({ children }) => {
     setCart(newCart);
   };
 
+  // RESTO CANTIDAD A UN PROF EXISTENTE E EL CART
   const removeCount = (items) => {
     let newCart;
     let index = cart.findIndex((el) => el.id === items.id);
@@ -42,11 +46,11 @@ export const CartProvider = ({ children }) => {
     newCart = [...cart];
     setCart(newCart);
   };
-
+  // REALIZA LA SUMA TOTAL DE CADA PROF DEL CART
   const totalItems = (el) => {
     return el.precio * el.quantity;
   };
-
+  // REALIZA LA SUMA TOTAL DEL CART Y LLAMA A totalItems()
   const total = () => {
     cart["total"] = cart
       .map((el) => totalItems(el))
@@ -54,17 +58,22 @@ export const CartProvider = ({ children }) => {
     return cart.total;
   };
 
+  // LIMPIA EL CARRITO
   const clear = () => {
     setCart([]);
   };
 
+  // VERIFICO SI EL PROF ELEGIDO ESTA EN EL CART
   const isInCart = (id) => {
     return cart.find((item) => item.id === id) ? true : false;
   };
 
+  // QUITA UN ELEMENTO DEL CART
   const removeItem = (items) => {
     setCart(cart.filter((el) => el.id !== items.id));
   };
+
+  // GENERO LA ORDEN DE COMPRA
 
   const generateOrder = () => {
     const order = {};
@@ -88,7 +97,7 @@ export const CartProvider = ({ children }) => {
         setOrder(resp.id);
       })
       .catch((err) => console.log(err))
-      .finally(() => setCart([]));
+      .finally(() => clear());
   };
 
   return (

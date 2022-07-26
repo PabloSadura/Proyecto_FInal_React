@@ -4,8 +4,11 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { CartContext } from "../../Context/CartContext";
 import "./SweetAlert.css";
+
 function SweetAlert() {
   const { clear, generateOrder, user } = useContext(CartContext);
+
+  // SE UTILIZA UNA FUNCION DE SWEET ALERT PARA CUANDO SE QUIERE ELIMINAR TODO EL CARRITO
 
   const sweet = () => {
     Swal.fire({

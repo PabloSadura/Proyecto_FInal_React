@@ -18,6 +18,7 @@ function DetailProfesional() {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
+  // TRAIGO DE FIRESTORE UN PROFESIONAL
   useEffect(() => {
     const db = getFirestore();
     const queryProfesional = doc(db, "profesionales", id);
@@ -33,6 +34,8 @@ function DetailProfesional() {
       .finally(() => setLoading(false));
   }, []);
 
+  // FUNCIONES PARA SUMAR Y RESTAR CANTIDADES
+
   const add = (item) => {
     item.quantity++;
     item["total"] = item.precio * item.quantity;
@@ -43,7 +46,7 @@ function DetailProfesional() {
     item["total"] = item.precio * item.quantity;
     setProfesional({ ...item });
   };
-
+  // DESTRUCTURING DEL PROFESIONAL
   const {
     nombre,
     localidad,
@@ -55,6 +58,7 @@ function DetailProfesional() {
     quantity,
   } = profesional;
 
+  // FUNCION QUE ME PINTA LA CANTIDAD DE ESTRELLAS DEL PROFESIONAL
   const star = () => {
     let stars = [];
     for (let i = 0; i < rate; i++) {

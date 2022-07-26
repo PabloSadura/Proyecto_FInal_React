@@ -12,7 +12,6 @@ function Items({ products }) {
       <Card.Header as="h5">{nombre}</Card.Header>
       <Card.Img variant="top" src={img} className="p-2" />
       <Card.Body>
-        {/* <Card.Title>{nombre}</Card.Title> */}
         <Card.Text>{precio}</Card.Text>
         <Link
           to={`/profesionales/${categoria}`}

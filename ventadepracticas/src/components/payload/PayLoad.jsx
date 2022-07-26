@@ -1,11 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
 
 function PayLoad() {
   const { order } = useContext(CartContext);
-  const [buyer, setBuyer] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   return (
     <>

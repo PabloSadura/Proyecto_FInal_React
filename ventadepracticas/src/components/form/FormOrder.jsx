@@ -5,6 +5,7 @@ import { CartContext } from "../../Context/CartContext";
 function FormOrder() {
   const { user, setUser } = useContext(CartContext);
 
+  // FUNCION QUE COMPLETA LOS DATOS DE USUARIO
   const validToUser = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };

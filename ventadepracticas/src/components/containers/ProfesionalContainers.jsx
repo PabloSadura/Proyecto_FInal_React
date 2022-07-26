@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   getFirestore,
   collection,
@@ -6,17 +6,16 @@ import {
   query,
   where,
 } from "firebase/firestore";
-import { useEffect } from "react";
-import { useState } from "react";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-
 import ItemsListProfesional from "../ItemsList/ItemsListProfesional";
 
 function ProfesionalContainers() {
   const [profesional, setProfesional] = useState([]);
   const [loading, setLoading] = useState(true);
   const { categoria } = useParams();
+
+  // EXTRAIGO LA BASE COMPLETA DE PROFESIONALES
 
   useEffect(() => {
     const db = getFirestore();
