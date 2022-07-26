@@ -8,12 +8,13 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [user, setUser] = useState([]);
+  const [order, setOrder] = useState([]);
 
   const addItems = (items) => {
     let newCart;
     if (isInCart(items.id)) {
       let index = cart.findIndex((el) => el.id === items.id);
-      cart[index].quantity++;
+      cart[index].quantity += items.quantity;
       cart[index].total = cart[index].precio * cart[index].quantity;
       newCart = [...cart];
     } else {
@@ -30,7 +31,6 @@ export const CartProvider = ({ children }) => {
     let newCart;
     let index = cart.findIndex((el) => el.id === items.id);
     cart[index].quantity++;
-    cart[index].total = cart[index].precio * cart[index].quantity;
     newCart = [...cart];
     setCart(newCart);
   };
@@ -39,7 +39,6 @@ export const CartProvider = ({ children }) => {
     let newCart;
     let index = cart.findIndex((el) => el.id === items.id);
     cart[index].quantity > 1 ? cart[index].quantity-- : null;
-    cart[index].total = cart[index].precio * cart[index].quantity;
     newCart = [...cart];
     setCart(newCart);
   };
@@ -76,22 +75,19 @@ export const CartProvider = ({ children }) => {
     };
     order.items = cart.map((el) => {
       const id = el.id;
-      const price = el.total;
+      const practice = el.practica;
       const title = el.nombre;
       const quantity = el.quantity;
-      return { id, price, title, quantity };
+      return { id, practice, title, quantity };
     });
     order.total = total();
-    console.log(order);
-
     const db = getFirestore();
     const queryInsert = collection(db, "orders");
     addDoc(queryInsert, order)
       .then((resp) => {
-        console.log(resp);
+        setOrder(resp.id);
       })
       .catch((err) => console.log(err));
-    setCart([]);
   };
 
   return (
@@ -109,6 +105,7 @@ export const CartProvider = ({ children }) => {
         total,
         user,
         setUser,
+        order,
       }}
     >
       {children}

@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { CartContext } from "../../Context/CartContext";
 import "./SweetAlert.css";
 function SweetAlert() {
-  const { clear, generateOrder } = useContext(CartContext);
+  const { clear, generateOrder, user } = useContext(CartContext);
 
   const sweet = () => {
     Swal.fire({
@@ -34,13 +34,18 @@ function SweetAlert() {
       <button onClick={sweet} className="css-button-rounded--red mt-3 ">
         Vaciar Carrito
       </button>
-      <Link
-        to={"/payLoad"}
-        className="css-button-rounded--green ms-4 text-decoration-none"
-        onClick={generateOrder}
-      >
-        Generar Orden
-      </Link>
+      {user.name && user.email && user.phone ? (
+        <button
+          className="css-button-rounded--green ms-4 text-decoration-none"
+          onClick={generateOrder}
+        >
+          Generar Orden
+        </button>
+      ) : (
+        <button className="css-button-rounded--green ms-4 text-decoration-none">
+          Registrarse
+        </button>
+      )}
     </div>
   );
 }

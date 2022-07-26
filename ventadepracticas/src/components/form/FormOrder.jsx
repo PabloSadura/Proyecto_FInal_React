@@ -3,15 +3,10 @@ import { Form, Row, Col } from "react-bootstrap";
 import { CartContext } from "../../Context/CartContext";
 
 function FormOrder() {
-  const { addForm, user, setUser } = useContext(CartContext);
+  const { user, setUser } = useContext(CartContext);
 
-  const { name, email, phone } = user;
   const validToUser = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
-  };
-
-  const cleanUser = () => {
-    setUser([]);
   };
 
   return (
@@ -23,7 +18,7 @@ function FormOrder() {
             <Form.Control
               placeholder="Nombre"
               name="name"
-              onBlur={(e) => {
+              onChange={(e) => {
                 validToUser(e);
               }}
             />
@@ -32,7 +27,7 @@ function FormOrder() {
             <Form.Control
               placeholder="Telefono"
               name="phone"
-              onBlur={(e) => {
+              onChange={(e) => {
                 validToUser(e);
               }}
             />
@@ -44,7 +39,7 @@ function FormOrder() {
               className="mt-2"
               placeholder="Email"
               name="email"
-              onBlur={(e) => {
+              onChange={(e) => {
                 validToUser(e);
               }}
             />
