@@ -1,11 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Spinner } from "react-bootstrap";
 
 function PayLoad() {
   const { order } = useContext(CartContext);
+  const [loading, setLoading] = useState(true);
 
-  return (
+  setTimeout(() => {
+    setLoading(false);
+  }, 2000);
+
+  return loading ? (
+    <div className="text-center">
+      <Spinner
+        animation="border"
+        role="status"
+        variant="info"
+        className=" mt-4"
+      />
+    </div>
+  ) : (
     <>
       <div className="m-4 text-center">
         <div className="border">
