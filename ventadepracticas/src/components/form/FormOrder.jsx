@@ -21,6 +21,7 @@ function FormOrder() {
               onChange={(e) => {
                 validToUser(e);
               }}
+              required
             />
           </Col>
           <Col>

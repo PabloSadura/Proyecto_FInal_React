@@ -2,17 +2,27 @@ import React from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { CartContext } from "../../../Context/CartContext";
 import FormOrder from "../../form/FormOrder";
 import SweetAlert from "../../sweetAlert/SweetAlert";
 import CartItems from "./CartItems";
 
 function Cart() {
-  const { cart, total, order } = useContext(CartContext);
+  const { cart, total } = useContext(CartContext);
   if (!cart.length) {
     return (
       <>
         <h3 className="text-center mt-4">No hay productos en el carrito</h3>
+        <div className="text-center">
+          <Link
+            to={"/"}
+            className="text-center text-decoration-none css-button-sliding-to-left--sky mt-4"
+          >
+            {" "}
+            Ir al inicio
+          </Link>
+        </div>
       </>
     );
   }
