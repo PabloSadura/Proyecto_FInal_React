@@ -87,7 +87,8 @@ export const CartProvider = ({ children }) => {
       .then((resp) => {
         setOrder(resp.id);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setCart([]));
   };
 
   return (
