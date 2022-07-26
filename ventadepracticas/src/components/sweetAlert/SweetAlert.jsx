@@ -35,12 +35,13 @@ function SweetAlert() {
         Vaciar Carrito
       </button>
       {user.name && user.email && user.phone ? (
-        <button
+        <Link
+          to={"/payload"}
           className="css-button-rounded--green ms-4 text-decoration-none"
           onClick={generateOrder}
         >
           Generar Orden
-        </button>
+        </Link>
       ) : (
         <button className="css-button-rounded--green ms-4 text-decoration-none">
           Registrarse

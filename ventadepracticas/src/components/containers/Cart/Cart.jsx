@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
 import { Container } from "react-bootstrap";
 import { CartContext } from "../../../Context/CartContext";
@@ -7,8 +8,7 @@ import SweetAlert from "../../sweetAlert/SweetAlert";
 import CartItems from "./CartItems";
 
 function Cart() {
-  const { cart, total } = useContext(CartContext);
-
+  const { cart, total, order } = useContext(CartContext);
   if (!cart.length) {
     return (
       <>
