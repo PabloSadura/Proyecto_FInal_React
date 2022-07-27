@@ -37,7 +37,7 @@ function SweetAlert() {
       <button onClick={sweet} className="css-button-rounded--red mt-3 ">
         Vaciar Carrito
       </button>
-      {user.name && user.email && user.phone ? (
+      {user.name && user.email && user.phone && user.checked ? (
         <Link
           to={"/payload"}
           className="css-button-rounded--green ms-4 text-decoration-none"

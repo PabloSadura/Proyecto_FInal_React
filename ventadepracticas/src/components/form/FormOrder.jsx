@@ -11,11 +11,8 @@ function FormOrder() {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  // VALIDAR MAIL
-  const validarEmail = (valor) => {
-    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)
-      ? true
-      : false;
+  const validData = (e) => {
+    setUser({ ...user, checked: e.target.checked });
   };
 
   return (
@@ -49,19 +46,8 @@ function FormOrder() {
               placeholder="Email"
               name="email"
               onBlur={(e) => {
-                validarEmail(e.target.value)
-                  ? validToUser(e)
-                  : (e.target.className = "mt-2 invalid");
+                validToUser(e);
               }}
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Form.Control
-              className="mt-2"
-              placeholder="Verificar Email"
-              name="email"
             />
           </Col>
         </Row>
@@ -71,6 +57,9 @@ function FormOrder() {
               <Form.Check
                 type="checkbox"
                 label="Aceptar Términos y Condiciones"
+                onClick={(e) => {
+                  validData(e);
+                }}
               />
             </Form.Group>
           </Col>
