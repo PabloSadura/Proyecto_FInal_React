@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../../Context/CartContext";
-import FormOrder from "../../form/FormOrder";
-import SweetAlert from "../../sweetAlert/SweetAlert";
+import { CartContext } from "../../Context/CartContext";
+import FormOrder from "../form/FormOrder";
+import SweetAlert from "../sweetAlert/SweetAlert";
 import CartItems from "./CartItems";
 
 function Cart() {

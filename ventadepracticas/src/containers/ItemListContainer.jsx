@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
-import ItemsList from "../ItemsList/ItemsList";
+import ItemsList from "../components/ItemsList/ItemsList";
 import { useParams } from "react-router-dom";
 import {
   collection,

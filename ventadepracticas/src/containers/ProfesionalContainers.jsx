@@ -8,7 +8,7 @@ import {
 } from "firebase/firestore";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import ItemsListProfesional from "../ItemsList/ItemsListProfesional";
+import ItemsListProfesional from "../components/ItemsList/ItemsListProfesional";
 
 function ProfesionalContainers() {
   const [profesional, setProfesional] = useState([]);
