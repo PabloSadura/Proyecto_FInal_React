@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import { CartContext } from "../../Context/CartContext";
 
-import "./FormOrder.css";
 function FormOrder() {
   const { user, setUser } = useContext(CartContext);
 

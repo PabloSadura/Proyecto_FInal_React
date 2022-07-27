@@ -77,11 +77,13 @@ export const CartProvider = ({ children }) => {
 
   const generateOrder = () => {
     const order = {};
+    const dateNow = new Date();
     order.buyer = {
       nombre: user.name,
       email: user.email,
       telefono: user.phone,
     };
+    order.date = dateNow;
     order.items = cart.map((el) => {
       const id = el.id;
       const practice = el.practica;
