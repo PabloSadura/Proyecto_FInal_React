@@ -8,7 +8,7 @@ function Items({ products }) {
   const { img, nombre, precio, categoria } = products;
 
   return (
-    <Card className="text-center mt-3 w-25 mx-1 shadow">
+    <Card className="col-12 col-md-3  text-center mt-3 mx-1 shadow">
       <Card.Header as="h5">{nombre}</Card.Header>
       <Card.Img variant="top" src={img} className="p-2" />
       <Card.Body>

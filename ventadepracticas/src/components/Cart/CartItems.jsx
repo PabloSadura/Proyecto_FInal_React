@@ -17,40 +17,41 @@ function CartItems({ items }) {
   const { nombre, quantity, especialidad, img, precio } = items;
 
   return (
-    <div className="border mt-3 p-4 rounded shadow target">
-      <div className="d-flex justify-content-between">
+    <div className="border mt-3 p-4 rounded shadow">
+      <div className=" d-flex">
         <img src={img} alt="" className="imagen me-4" />
-        <div>
-          <h3>{nombre}</h3>
-          <h6>{especialidad}</h6>
-        </div>
-        <div className="d-flex justify-content-end mt-3">
-          <h5>Cantidad:</h5>
-          <FontAwesomeIcon
-            icon={faMinusCircle}
-            className="icons"
-            onClick={() => {
-              removeCount(items);
-            }}
-          />
-          <h5 className="mx-2">{quantity}</h5>
-          <FontAwesomeIcon
-            icon={faPlusCircle}
-            className="icons"
-            onClick={() => {
-              addCount(items);
-            }}
-          />
-          <FontAwesomeIcon
-            icon={faTrashAlt}
-            className="ms-3 icons"
-            onClick={() => {
-              removeItem(items);
-            }}
-          />
+        <div className="d-md-flex justify-content-between">
+          <div className="d-flex flex-md-column">
+            <h3>{nombre}</h3>
+            <h6>{especialidad}</h6>
+          </div>
+          <div className="d-flex justify-content-end mt-3">
+            <h5>Cantidad:</h5>
+            <FontAwesomeIcon
+              icon={faMinusCircle}
+              className="icons"
+              onClick={() => {
+                removeCount(items);
+              }}
+            />
+            <h5 className="mx-2">{quantity}</h5>
+            <FontAwesomeIcon
+              icon={faPlusCircle}
+              className="icons"
+              onClick={() => {
+                addCount(items);
+              }}
+            />
+            <FontAwesomeIcon
+              icon={faTrashAlt}
+              className="ms-1 ms-md-3 icons"
+              onClick={() => {
+                removeItem(items);
+              }}
+            />
+          </div>
         </div>
       </div>
-
       <div className="row">
         <h2 className="text-end mt-2">$ {quantity * precio}</h2>
       </div>

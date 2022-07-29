@@ -32,7 +32,7 @@ const ItemListContainer = () => {
   }, [tipo]);
 
   return loading ? (
-    <div className="text-center mt-4">
+    <div className="text-center mt-4 container-fluid">
       <Spinner animation="border" role="status" variant="info" />
     </div>
   ) : (

@@ -73,12 +73,12 @@ function DetailProfesional() {
     </div>
   ) : (
     <div className="container">
-      <div className="row mt-4 border rounded-1 shadow w-100">
+      <div className="row mt-4 border rounded-1 shadow">
         <div className="col-md-6 text-center">
           <img src={img} alt="" className="w-50 p-4 rounded-5" />
         </div>
-        <div className="col-md-6 p-4">
-          <div className="d-flex justify-content-between">
+        <div className="col-md-6 p-4 text-md-start text-center">
+          <div className="d-md-flex justify-content-between">
             <h3>{nombre}</h3>
             <h4 className="text-muted">{star()}</h4>
           </div>
@@ -88,15 +88,15 @@ function DetailProfesional() {
             <FontAwesomeIcon icon={faLocationDot} key={id} />
             <span> {localidad}</span>
           </p>
-          <div className="d-flex justify-content-between">
-            <div>
+          <div className="d-md-flex justify-content-between">
+            <div className="text-center text-md-start">
               <h4>Practica Ofrecida:</h4>
               <h5>
                 {practica} <span>${precio}</span>
               </h5>
             </div>
-            <div>
-              <div className="d-flex">
+            <div className="">
+              <div className="d-flex justify-content-center">
                 <p>Cantidad:</p>
                 <FontAwesomeIcon
                   icon={faMinusCircle}
@@ -114,10 +114,10 @@ function DetailProfesional() {
                   }}
                 />
               </div>
-              <h4 className="text-end">$ {profesional.precio * quantity}</h4>
+              <h4 className="text-md-end">$ {profesional.precio * quantity}</h4>
             </div>
           </div>
-          <div className="text-end">
+          <div className="text-md-end">
             <ItemCount profesional={profesional} key={id} />
           </div>
         </div>

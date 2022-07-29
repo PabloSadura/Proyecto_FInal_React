@@ -15,7 +15,7 @@ function FormOrder() {
   };
 
   return (
-    <div className="m-3 p-4 border">
+    <div className="container mt-3 ms-md-2 p-4 border">
       <h3 className="text-center mb-3">Datos personales</h3>
       <Form>
         <Row>

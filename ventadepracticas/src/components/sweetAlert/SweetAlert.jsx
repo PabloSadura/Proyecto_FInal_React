@@ -33,7 +33,7 @@ function SweetAlert() {
   };
 
   return (
-    <div className="text-end">
+    <div className="text-center text-md-end">
       <button onClick={sweet} className="css-button-rounded--red mt-3 ">
         Vaciar Carrito
       </button>

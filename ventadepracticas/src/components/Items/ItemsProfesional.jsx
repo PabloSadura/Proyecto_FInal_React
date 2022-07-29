@@ -8,7 +8,7 @@ function ItemsProfesional({ profesional }) {
   const { id, rate, nombre, especialidad, localidad } = profesional;
 
   return (
-    <Card className="text-center mt-3 w-25 mx-1 shadow">
+    <Card className="col-12 col-md-3 text-center mt-3 mx-1 shadow">
       <Card.Header as="h5">{nombre}</Card.Header>
       <Card.Body>
         <Card.Text>{localidad}</Card.Text>

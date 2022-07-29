@@ -5,7 +5,7 @@ import ItemsProfesional from "../Items/ItemsProfesional";
 
 function ItemsListProfesional({ profesion }) {
   return (
-    <Container className="d-flex justify-content-evenly mt-4 flex-wrap w-100">
+    <Container className="d-flex justify-content-evenly mt-4 flex-wrap">
       {profesion.map((element) => (
         <ItemsProfesional profesional={element} key={element.id} />
       ))}

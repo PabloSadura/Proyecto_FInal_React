@@ -28,7 +28,7 @@ function Cart() {
   }
   return (
     <Container>
-      <div className="d-flex justify-content-between">
+      <div className="d-md-flex justify-content-between">
         <div className="col-md-6 ">
           {cart.map((el) => (
             <CartItems items={el} key={el.id} />
